@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleccionables</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/coleccionables.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    <main class="contenedor-coleccionables">
+        <h1 class="titulo-coleccionables">Coleccionables Exclusivos</h1>
+
+        <div class="grid-productos">
+            <!-- Producto 1 -->
+            <article class="card-producto">
+                <a href="../paginas/pagina-colleccionables/gaku.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable1.jpg') }}" alt="Figura_Goku">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FIGURA BANDAI GOKU ULTRA INSTINTO</h3>
+                    <p class="categoria">Figuras de Acción</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 99.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                 <a href="../paginas/pagina-colleccionables/onepice.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable2.jpg') }}" alt="Figura_Teach">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FIGURA BANDAI ONE PIECE DXF THE GRANDLINE SERIES SPECIAL TEACH</h3>
+                    <p class="categoria">Figura de Acción</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 119.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                 <a href="../paginas/pagina-colleccionables/luffy.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable3.jpg') }}" alt="Figura_Luffy">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FIGURA BANDAI ONE PIECE MONKEY D. LUFFY</h3>
+                    <p class="categoria">Figura de Acción</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 149.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <a href="../paginas/pagina-colleccionables/chewbaca.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable4.jpg') }}" alt="Figura_Chewbacca">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FIGURA STAR WARS CHEWBACA</h3>
+                    <p class="categoria">Figura de Acción</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 89.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <a href="../paginas/pagina-colleccionables/spiderman.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable5.jpg') }}" alt="Funko_Spiderman">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FUNKO POP MARVEL <br>SPIDER-MAN OSCORP SUIT</h3>
+                    <p class="categoria">Funko Pop</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 39.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <a href="../paginas/pagina-colleccionables/masse.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable6.jpg') }}" alt="Funko_Messi">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FUNKO POP <br>LIONEL MESSI N°1</h3>
+                    <p class="categoria">Funko Pop</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 49.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <a href="../paginas/pagina-colleccionables/yoshi.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable7.jpg') }}" alt="Figura_Yoshi">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>FIGURA SUPER MARIO LET'S GO - YOSHI!</h3>
+                    <p class="categoria">Funko Pop</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 159.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                  <a href="../paginas/pagina-colleccionables/pokemon.html">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/coleccionable8.jpg') }}" alt="Caja_Pokemon">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>POKÉMON TCG - CAJA DE ENTRENADOR DE ÉLITE</h3>
+                    <p class="categoria">Funko Pop</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+                </a>
+            </article>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

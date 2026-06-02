@@ -1,0 +1,576 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo oscuro principal */
+body,
+header,
+.sub_menu {
+    background-color: #020617;
+    color: white;
+}
+
+/* Elementos con display flex */
+header,
+.sub_menu,
+.contenedor-login,
+.btn-wsp {
+    display: flex;
+}
+
+/* Elementos con transición */
+.opciones a,
+.sub_menu ul li a,
+.btn-principal,
+.btn-secundario {
+    transition: 0.3s;
+}
+
+/* Enlaces sin subrayado */
+.logo,
+.opciones a,
+.sub_menu ul li a,
+.olvido-pass {
+    text-decoration: none;
+}
+
+/* Esto quita el subrayado y el color morado de "visitado" */
+.logo a {
+    text-decoration: none;
+    color: #3b82f6;
+}
+
+/* --- HEADER --- */
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #1e293b;
+}
+
+/*ANTERIOR CODIGO*/
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.logo a:active {
+    color: #ffffff; /* Cambia a blanco justo cuando haces clic */
+    transform: scale(0.98);
+    display: inline-block;
+}
+
+/* Para asegurar que no cambie a morado después de hacer clic */
+.logo a:visited {
+    color: #3b82f6;
+}
+
+
+/*MODIFICADO POR DAMIR INICIO*/
+/* ===== TITULO GAMER RETRO ===== */
+
+.logo{
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 2.2rem;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #7dd3fc 35%,
+        #60a5fa 55%,
+        #c084fc 80%,
+        #f472b6 100%
+    );
+
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 4px rgba(96,165,250,0.6),
+        0 0 10px rgba(192,132,252,0.5),
+        0 0 18px rgba(244,114,182,0.35);
+
+    transition: 0.25s ease;
+
+}
+
+/* Hover elegante */
+.logo:hover{
+
+    transform: scale(1.03);
+
+    filter: brightness(1.15);
+
+}
+
+/* Mantener color del link */
+.logo a,
+.logo a:visited,
+.logo a:active{
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+/*MODIFICADO POR DAMIR FINAL*/
+
+/* --- BARRA DE BÚSQUEDA --- */
+.barra-busqueda input {
+    width: 300px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.busqueda input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* --- OPCIONES HEADER --- */
+.opciones a {
+    color: white;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.opciones a:hover {
+    color: #3b82f6;
+}
+
+
+/* --- SUBMENÚ --- */
+.sub_menu {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.sub_menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.sub_menu ul li a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sub_menu ul li a:hover {
+    color: #3b82f6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: #020617;
+    min-width: 220px;
+
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+
+    padding: 10px 0;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-content li {
+    list-style: none;
+    width: 100%;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #1e293b;
+    color: #38bdf8;
+}
+/* --- REPETIR TODO LO ANTERIOR EN TODOS LOS CSS --- dsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd*/
+
+.conetendor{
+    display: grid;                            /*utiliza el modelo de grid para organizar
+                                                 los elementos dentro del contenedor*/
+
+    grid-template-columns: repeat(2, 1fr);    /*3 columnas de igual tamaño*/
+
+    padding: 40px;                            /*espacio alrededor del contenedor*/
+}
+
+.estrellas {
+  color: #9ca2eb; /* Color gris por defecto */
+  font-size: 3rem;
+}
+
+.estrellas span:hover,
+.estrellas span:hover ~ span {
+  color: #ffffff; /* Color dorado al pasar el ratón */
+}
+
+.agregar-carrito {
+
+    display: flex;
+
+    gap:10%;
+
+
+}
+
+.selector-cantidad {
+  display: inline-flex; /* Los mantiene en línea y juntos */
+  border: 1px solid #ddd3d3; /* El único borde exterior */
+  border-radius: 10px;
+  overflow: hidden; /* Corta las esquinas de los botones para que sigan el radio */
+  width: 20%;  /* Ajusta según prefieras */
+  
+
+}
+
+.selector-cantidad button, 
+.selector-cantidad input {
+  border: none;        /* Quitamos bordes individuales */
+  background: #fff;    /* Fondo blanco para todos */
+  height: 40px;        /* Misma altura para todos */
+  margin: 0;           /* Eliminamos cualquier margen residual */
+  padding: 0;
+  outline: none;       /* Quita el borde azul al hacer clic */
+}
+
+.selector-cantidad button {
+  width: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selector-cantidad input {
+  width: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  /* Añadimos líneas divisorias solo a los lados del número */
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  
+}
+
+
+/* RESEÑAS */
+.seccion_resenas {
+    padding: 30px;
+    text-align: center;
+}
+
+.caja_resenas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.resena {
+    background: #020617;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* BOTÓN FLOTANTE DINÁMICO */
+.contacto_flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #cbd5e1;
+    
+    /* Inicialmente solo mostramos el círculo del logo */
+    width: 60px; 
+    height: 60px;
+    padding: 0;
+    
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    
+    /* Transición suave para el ancho */
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden; /* Oculta el texto cuando el botón es pequeño */
+}
+
+/* Estado al pasar el mouse */
+.contacto_flotante:hover {
+    width: 260px;
+    padding-left: 15px;
+}
+
+.icono_chat {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono_chat img {
+    width: 35px;
+    height: 35px;
+    mix-blend-mode: multiply; 
+    filter: contrast(1.2);
+}
+
+.texto_contacto {
+    color: white;
+    font-weight: bold;
+    opacity: 0; /* Invisible al inicio */
+    transition: opacity 0.3s ease;
+    padding-right: 20px;
+}
+
+.contacto_flotante:hover .texto_contacto {
+    opacity: 1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #020617;
+    margin-top: 30px;
+} 
+
+
+
+
+/*dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd */
+
+
+
+.carrousel{
+    width: 100%;
+
+    
+}
+
+.conteCarrousel{
+    width: 190%;
+    height: 700px;
+    overflow: hidden;
+}
+
+.itemCarrousel{
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.itemCarrouselTarjeta{
+    width: 100%;
+    height: 100%;
+}
+
+.itemCarrouselArrows{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px; 
+}
+
+.itemCarrouselArrows > i:hover {
+    cursor: pointer;
+}
+
+#itemCarrousel-1 img {
+    background-color: rgb(226, 50, 50);
+
+    width:60%;
+    height:90%;
+
+}
+
+#itemCarrousel-2 img {
+    background-color: rgb(50, 200, 226);
+
+    width:100%;
+    height:80%;
+
+}
+
+#itemCarrousel-3 img{
+    background-color: rgb(200, 226, 50);
+
+     width:100%;
+    height:80%;
+}
+
+.conteCarrouselController{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.conteCarrouselController > a{
+    text-decoration: none;
+    font-size: 2em;
+    color: grey;
+}
+
+.itemCarrouselArrows > a > i{
+    color: white;
+}
+
+img {
+
+    width:60%;
+    height:90%;
+
+}
+
+.holi1{
+    
+    margin-left: 20%;
+    margin-top: 3%;
+
+}
+
+.holi2{
+    
+    margin-left:1%;
+    margin-top: 10%;
+
+}
+.holi3{
+    
+    margin-left:1%;
+    margin-top: 10%;
+
+}
+    
+.cuadro1 h1 {
+
+    font-size: 50px;
+}
+
+.cuadro1 h2 {
+
+    font-size: 30px;
+}
+
+.cuadro1 h5 {
+
+    font-size: 18px;
+}
+
+.cuadro1 p {
+
+    font-size: 20px;
+}
+
+
+/*diseño al boton para agregar el carrito*/
+.btn-carrito {
+    background-color: #3b82f6; /* El azul de tu logo */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+    width: 35%;  /* Ajusta según prefieras */
+    height: 40px;
+    font-size: 20px; /*tamaño de la letra*/
+}
+
+.btn-carrito:hover {
+    background-color: #2563eb;
+    transform: scale(1.1); /* Un pequeño efecto de aumento */
+}
+
+.btn-carrito i {
+    font-size: 1.1rem; /* Tamaño del icono */
+}
+
+/*darle detalle al apartado de detalles*/
+.Detalle{
+    margin-left: 80px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.Detalles h3 {
+    margin-left: 80px;
+    font-size: 50px;
+  
+}
+
+@media  (max-width:700px){
+
+
+
+ .sub_menu{
+    display: none;
+    margin-left: 80px;
+    font-size: 50px;
+    padding: 10px;
+
+  }
+ 
+
+}

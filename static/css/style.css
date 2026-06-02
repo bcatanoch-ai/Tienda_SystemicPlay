@@ -1,0 +1,690 @@
+/* --- RESPONSIVIDAD PARA MÓVILES (Systemic Play) --- */
+
+@media (max-width: 768px) {
+    /* 1. Reorganizar el Header (Logo, Buscador, Login) */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .busqueda {
+        width: 100%;
+        order: 2; /* Pone el buscador debajo del logo */
+    }
+
+    .busqueda input {
+        width: 100%; /* El buscador usa todo el ancho disponible */
+    }
+
+    .opciones {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        gap: 20px;
+        order: 3;
+    }
+
+    /* 2. Menú de Navegación Vertical (Consolas, Accesorios, etc.) */
+    .sub_menu {
+        height: auto;
+        padding: 0;
+    }
+
+    .sub_menu ul {
+        flex-direction: column; /* FORZA UNA FILA POR ELEMENTO */
+        gap: 0;
+        width: 100%;
+    }
+
+    .sub_menu ul li {
+        width: 100%;
+        border-bottom: 1px solid #1e293b;
+    }
+
+    .sub_menu ul li a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* 3. Ajuste del Dropdown (Consolas) para móvil */
+    .dropdown-content {
+        position: static; /* Ya no flota, se empuja hacia abajo */
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none; /* Se oculta por defecto en móvil */
+        background-color: #0f172a;
+        border: none;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: flex; /* Se muestra al mantener presionado o pasar el mouse */
+    }
+
+    /* 4. Ajuste de imágenes y Grid (Para que no se vea gigante) */
+    .slide img {
+        height: 250px; /* Reducimos el banner en celulares */
+    }
+
+    .grid_productos {
+        grid-template-columns: repeat(2, 1fr); /* Dos juegos por fila en móvil */
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* Ajuste extra para celulares muy pequeños */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem; /* El título retro se achica un poco */
+    }
+    
+    .grid_productos {
+        grid-template-columns: 1fr; /* Un solo juego por fila si es muy angosto */
+    }
+}
+
+/* --- CONFIGURACIÓN GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo oscuro principal */
+body,
+header,
+.sub_menu {
+    background-color: #020617;
+    color: white;
+}
+
+/* Elementos con display flex */
+header,
+.sub_menu,
+.contenedor-login,
+.btn-wsp {
+    display: flex;
+}
+
+/* Elementos con transición */
+.opciones a,
+.sub_menu ul li a,
+.btn-principal,
+.btn-secundario {
+    transition: 0.3s;
+}
+
+/* Enlaces sin subrayado */
+.logo,
+.opciones a,
+.sub_menu ul li a,
+.olvido-pass {
+    text-decoration: none;
+}
+
+/* Esto quita el subrayado y el color morado de "visitado" */
+.logo a {
+    text-decoration: none;
+    color: #3b82f6;
+}
+
+/* --- HEADER --- */
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #1e293b;
+}
+
+/*ANTERIOR CODIGO*/
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.logo a:active {
+    color: #ffffff; /* Cambia a blanco justo cuando haces clic */
+    transform: scale(0.98);
+    display: inline-block;
+}
+
+/* Para asegurar que no cambie a morado después de hacer clic */
+.logo a:visited {
+    color: #3b82f6;
+}
+
+
+/*MODIFICADO POR DAMIR INICIO*/
+/* ===== TITULO GAMER RETRO ===== */
+
+.logo{
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 2.2rem;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #7dd3fc 35%,
+        #60a5fa 55%,
+        #c084fc 80%,
+        #f472b6 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 4px rgba(96,165,250,0.6),
+        0 0 10px rgba(192,132,252,0.5),
+        0 0 18px rgba(244,114,182,0.35);
+
+    transition: 0.25s ease;
+
+}
+
+/* Hover elegante */
+.logo:hover{
+
+    transform: scale(1.03);
+
+    filter: brightness(1.15);
+
+}
+
+/* Mantener color del link */
+.logo a,
+.logo a:visited,
+.logo a:active{
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+/*MODIFICADO POR DAMIR FINAL*/
+
+/* --- BARRA DE BÚSQUEDA --- */
+.barra-busqueda input {
+    width: 300px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.busqueda input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* --- OPCIONES HEADER --- */
+.opciones a {
+    color: white;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.opciones a:hover {
+    color: #3b82f6;
+}
+
+
+/* --- SUBMENÚ --- */
+.sub_menu {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.sub_menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.sub_menu ul li a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sub_menu ul li a:hover {
+    color: #3b82f6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: #020617;
+    min-width: 220px;
+
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+
+    padding: 10px 0;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-content li {
+    list-style: none;
+    width: 100%;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #1e293b;
+    color: #38bdf8;
+}
+/* --- REPETIR TODO LO ANTERIOR EN TODOS LOS CSS --- */
+
+
+/* SLIDER */
+.banner_ofertas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+
+.visor_slider {
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contenedor_slides {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.flecha {
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    font-size: 25px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenedor_principal {
+    padding: 30px;
+}
+
+.titulo_seccion {
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+/* GRID PRODUCTOS */
+.grid_productos {
+    display: grid;
+    /* Bajamos el mínimo a 150px para que siempre quepan al menos dos */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.producto_item {
+    background: #020617;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%; /* Obliga a la tarjeta a usar el ancho de la columna */
+    max-width: 250px; /* Evita que se estire demasiado en pantallas gigantes */
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.producto_item:hover {
+    transform: scale(1.05);
+}
+
+.img_tendencia img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.nombre_juego {
+    padding: 10px;
+    text-align: center;
+}
+
+/* OFERTAS */
+.botones_plataformas {
+    padding: 30px;
+    text-align: center;
+}
+
+.botones_plataformas h2 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+
+/* Estilo base del botón */
+.btn_plataforma {
+    background: #38bdf8;
+    color: #020617;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+
+    display: inline-block;     /* Permite que el padding y transform funcionen */
+    text-align: center;        /* Centra el texto */
+    text-decoration: none;     /* Quita la línea de subrayado de los links */
+    
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.btn_plataforma:hover {
+    background: #ffffff;
+    color: #38bdf8;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(56, 189, 248, 0.4);
+}
+
+/* EFECTO AL HACER CLIC */
+.btn_plataforma:active {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*BOTONES VIDEJUEGOS MODIFICADOS*/
+.botones_videojuegos {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.columna_plataforma {
+    background: #020617;
+    padding: 10px;
+    border-radius: 15px;
+    width: 180px;
+}
+
+/*COLUMNA PLATAFORMA MODIFICADA*/
+.columna_plataforma {
+    background: transparent;  /* Quitamos el fondo para separar el botón */
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.columna_plataforma button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #38bdf8;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* LA TARJETA DEL JUEGO DE OFERTA AGREGADO*/
+.tarjeta_juego {
+    position: relative;
+    background: #020617;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.tarjeta_juego:hover {
+    transform: scale(1.02);
+    border-color: #38bdf8;
+}
+
+.img_oferta {
+    position: relative;
+    width: 100%;
+}
+
+.img_oferta img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.etiqueta_descuento {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ef4444;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.info_juego {
+    padding: 15px;
+}
+
+.titulo_juego {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    height: 40px; /* Para que todos los precios alineen igual */
+    overflow: hidden;
+    color: #cbd5e1;
+}
+
+.precios {
+    display: flex;
+    flex-direction: column;
+}
+
+.precio_antes {
+    font-size: 0.8rem;
+    color: #64748b;
+    text-decoration: line-through;
+}
+
+.precio_ahora {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+/* RESEÑAS */
+.seccion_resenas {
+    padding: 30px;
+    text-align: center;
+}
+
+.caja_resenas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.resena {
+    background: #020617;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* BOTÓN FLOTANTE DINÁMICO */
+.contacto_flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #cbd5e1;
+    
+    /* Inicialmente solo mostramos el círculo del logo */
+    width: 60px; 
+    height: 60px;
+    padding: 0;
+    
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    
+    /* Transición suave para el ancho */
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden; /* Oculta el texto cuando el botón es pequeño */
+}
+
+/* Estado al pasar el mouse */
+.contacto_flotante:hover {
+    width: 260px;
+    padding-left: 15px;
+}
+
+.icono_chat {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono_chat img {
+    width: 35px;
+    height: 35px;
+    mix-blend-mode: multiply; 
+    filter: contrast(1.2);
+}
+
+.texto_contacto {
+    color: white;
+    font-weight: bold;
+    opacity: 0; /* Invisible al inicio */
+    transition: opacity 0.3s ease;
+    padding-right: 20px;
+}
+
+.contacto_flotante:hover .texto_contacto {
+    opacity: 1;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #020617;
+    margin-top: 30px;
+} 
+
+/* Estilo base para todos los enlaces de navegación */
+.option, .sub_menu ul li a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+/* Efecto para el submenú (Lanzamientos, Accesorios, etc.) */
+.sub_menu ul li a:hover {
+    color: #3b82f6;
+}
+
+/*efecto para los afiches de juegos (modificado por erick para que los link no agarren subtitulado morado xd */
+.producto_item a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #e7e7e7;
+}
+
+
+.tarjeta_juego a{
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #e7e7e7;
+}

@@ -1,0 +1,412 @@
+/* --- RESPONSIVIDAD PARA MÓVILES (Systemic Play) --- */
+
+@media (max-width: 768px) {
+    /* 1. Reorganizar el Header (Logo, Buscador, Login) */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .busqueda {
+        width: 100%;
+        order: 2; /* Pone el buscador debajo del logo */
+    }
+
+    .busqueda input {
+        width: 100%; /* El buscador usa todo el ancho disponible */
+    }
+
+    .opciones {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        gap: 20px;
+        order: 3;
+    }
+
+    /* 2. Menú de Navegación Vertical (Consolas, Accesorios, etc.) */
+    .sub_menu {
+        height: auto;
+        padding: 0;
+    }
+
+    .sub_menu ul {
+        flex-direction: column; /* FORZA UNA FILA POR ELEMENTO */
+        gap: 0;
+        width: 100%;
+    }
+
+    .sub_menu ul li {
+        width: 100%;
+        border-bottom: 1px solid #1e293b;
+    }
+
+    .sub_menu ul li a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* 3. Ajuste del Dropdown (Consolas) para móvil */
+    .dropdown-content {
+        position: static; /* Ya no flota, se empuja hacia abajo */
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        display: none; /* Se oculta por defecto en móvil */
+        background-color: #0f172a;
+        border: none;
+        box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: flex; /* Se muestra al mantener presionado o pasar el mouse */
+    }
+
+    /* 4. Ajuste de imágenes y Grid (Para que no se vea gigante) */
+    .slide img {
+        height: 250px; /* Reducimos el banner en celulares */
+    }
+
+    .grid_productos {
+        grid-template-columns: repeat(2, 1fr); /* Dos juegos por fila en móvil */
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+/* Ajuste extra para celulares muy pequeños */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.5rem; /* El título retro se achica un poco */
+    }
+    
+    .grid_productos {
+        grid-template-columns: 1fr; /* Un solo juego por fila si es muy angosto */
+    }
+}
+
+/* --- CONFIGURACIÓN GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fondo oscuro principal */
+body,
+header,
+.sub_menu {
+    background-color: #020617;
+    color: white;
+}
+
+/* Elementos con display flex */
+header,
+.sub_menu,
+.contenedor-login,
+.btn-wsp {
+    display: flex;
+}
+
+/* Elementos con transición */
+.opciones a,
+.sub_menu ul li a,
+.btn-principal,
+.btn-secundario {
+    transition: 0.3s;
+}
+
+/* Enlaces sin subrayado */
+.logo,
+.opciones a,
+.sub_menu ul li a,
+.olvido-pass {
+    text-decoration: none;
+}
+
+/* Esto quita el subrayado y el color morado de "visitado" */
+.logo a {
+    text-decoration: none;
+    color: #3b82f6;
+}
+
+/* --- HEADER --- */
+header {
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    border-bottom: 1px solid #1e293b;
+}
+
+/*ANTERIOR CODIGO*/
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.logo a:active {
+    color: #ffffff; /* Cambia a blanco justo cuando haces clic */
+    transform: scale(0.98);
+    display: inline-block;
+}
+
+/* Para asegurar que no cambie a morado después de hacer clic */
+.logo a:visited {
+    color: #3b82f6;
+}
+
+
+/*MODIFICADO POR DAMIR INICIO*/
+/* ===== TITULO GAMER RETRO ===== */
+
+.logo{
+
+    font-family: 'Orbitron', sans-serif;
+
+    font-size: 2.2rem;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #7dd3fc 35%,
+        #60a5fa 55%,
+        #c084fc 80%,
+        #f472b6 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+        0 0 4px rgba(96,165,250,0.6),
+        0 0 10px rgba(192,132,252,0.5),
+        0 0 18px rgba(244,114,182,0.35);
+
+    transition: 0.25s ease;
+
+}
+
+/* Hover elegante */
+.logo:hover{
+
+    transform: scale(1.03);
+
+    filter: brightness(1.15);
+
+}
+
+/* Mantener color del link */
+.logo a,
+.logo a:visited,
+.logo a:active{
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+/*MODIFICADO POR DAMIR FINAL*/
+
+/* --- BARRA DE BÚSQUEDA --- */
+.barra-busqueda input {
+    width: 300px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.busqueda input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+/* --- OPCIONES HEADER --- */
+.opciones a {
+    color: white;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.opciones a:hover {
+    color: #3b82f6;
+}
+
+
+/* --- SUBMENÚ --- */
+.sub_menu {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.sub_menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.sub_menu ul li a {
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.sub_menu ul li a:hover {
+    color: #3b82f6;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: #020617;
+    min-width: 220px;
+
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+
+    padding: 10px 0;
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dropdown-content li {
+    list-style: none;
+    width: 100%;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #1e293b;
+    color: #38bdf8;
+}
+/* --- REPETIR TODO LO ANTERIOR EN TODOS LOS CSS --- */
+
+
+/* --- LOGIN --- */
+.contenedor-login {
+    justify-content: center;
+    align-items: center;
+
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.caja-login {
+    background: white;
+    color: #333;
+
+    padding: 40px;
+    border-radius: 8px;
+
+    width: 100%;
+    max-width: 500px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.caja-login h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #020617;
+}
+
+/* --- INPUTS --- */
+.grupo-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.grupo-input input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* --- BOTONES --- */
+.btn-principal,
+.btn-secundario {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-principal {
+    background-color: #020617;
+    color: white;
+    border: none;
+}
+
+.btn-principal:hover {
+    background-color: #3b82f6;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #020617;
+    border: 2px solid #020617;
+}
+
+/* --- OLVIDÉ CONTRASEÑA --- */
+.olvido-pass {
+    display: block;
+    margin-bottom: 20px;
+    color: #3b82f6;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximos Lanzamientos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lanzamientos.css') }}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    
+    <h1 class="titulo-lanzamientos">Lanzamientos más populares de 2026 - 2027</h1>
+    <main class="contenedor-proximos">
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2027</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento1.png') }}" alt="GTA VI">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Grand Theft Auto VI</a>
+                        <span class="plataformas">PS5</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    Grand Theft Auto VI o GTA 6 es la nueva entrega de la saga de aventuras y acción en mundo abierto de la saga superventas 
+                    GTA de Rockstar Games, que sentó las bases que luego han imitado todos los 'sandbox' posteriores. Llega más de diez años 
+                    después de GTA 5, que ha vendido cerca de 200 millones de copias, y de superar las previsiones más optimistas gracias a 
+                    Grand Theft Auto Online, su componente multijugador. Está previsto para 2024 o principios de 2025 en PC y consolas de nueva generación.
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Mundo abierto / Acción</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="contenedor-proximos">
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2026</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento2.jpg') }}" alt="Tomodachi Life">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Tomodachi Life: Una vida de ensueño</a>
+                        <span class="plataformas">Nintendo Switch</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    En Tomodachi Life: Una vida de ensueño, los personajes Mii viven a su aire, libres de preocupaciones, 
+                    en una diminuta isla perdida en medio del mar. Deberás tomar las riendas del lugar, así que échales una manita a 
+                    los Mii para que disfruten al máximo de sus vidas: resuelve sus cuitas, haz que estrechen sus lazos de amistad con el vecindario 
+                    ¡y mucho más!
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Simulación Social </p>
+            </div>
+        </section>
+    </main>
+
+    <main class="contenedor-proximos">
+
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2027 - 2028</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento3.jpg') }}" alt="HL2">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Hogwards Legacy II</a>
+                        <span class="plataformas">PS5</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    Hace tan solo unos días te ofrecimos la información de que la ventana de lanzamiento del nuevo Hogwarts Legacy 2 podría haberse filtrado. 
+                    Eso significó que este mismo año no podrás ver esta esperada entrega, sino que llegaría, como mínimo, en el próximo año 2027. 
+                    Lógicamente, todos los amantes de Harry Potter que estuviesen esperando este juego podrían tomarse esto como algo malo, sin embargo, 
+                    también se puede pensar en positivo y tomarse esta ventana de lanzamiento como algo bueno.
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Mundo abierto / Aventura / RPG</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="contenedor-proximos">
+
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2026</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento4.jpg') }}" alt="CaptainTzubasaII">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Captain Tsubasa II: World Fighters</a>
+                        <span class="plataformas">PS5</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    ¡Ya está aquí el nuevo capítulo de la cautivadora aventura de Tsubasa! Disfruta de una acción futbolística espectacular con 
+                    110 personajes disponibles y nuevos supermovimientos alucinantes. Desafía a amigos en el campo o apoya a Tsubasa en su viaje. 
+                    ¡El balón es tu amigo! <br>
+                    • ¡Un mundo futbolístico más grande que antes!
+                    ¡22 selecciones nacionales, más de 110 personajes disponibles y más de 150 escenas cinemáticas que resaltan los movimientos del campo! 
+                    Disfruta de choques entre equipos nunca vistos en el manga, además de los equipos y personajes originales, en escenas épicas y fascinantes. 
+                    ¡Estos momentos apoteósicos nunca han sido tan emocionantes! <br>
+                    • Jugabilidad nueva y mejorada
+                    ¡Todo lo que sucede en el campo es mucho mejor! Los nuevos supermovimientos aumentan la intensidad en todos los tramos del encuentro. 
+                    Ahora, puedes dominar el partido con tu propia acción especial en cada pase, regate, entrada o bloqueo. ¡Hasta las paradas requieren más técnica!
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Deporte / Acción</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="contenedor-proximos">
+
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2027</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento5.jpg') }}" alt="DBX3">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Dragon Ball Xenoverse 3</a>
+                        <span class="plataformas">Xbox Series | PS5 | PC</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    Bandai Namco Entertainment Europe invita a los fans y jugadores a adentrarse en un mundo de DRAGON BALL completamente nuevo creado 
+                    por Akira Toriyama en DRAGON BALL XENOVERSE 3. <br>
+                    Tras 10 años desde el último juego de la saga, DRAGON BALL XENOVERSE 3 se anunció a principios de este año con un tráiler que 
+                    mostraba un nuevo escenario llamado AGE 1000 , y se reveló en el Dragon Ball Games Battle Hour 2026 , el evento principal para los 
+                    fans de DRAGON BALL de todo el mundo.
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Mundo abierto / Acción / Lucha / Rol RPG</p>
+            </div>
+        </section>
+    </main>
+
+    <main class="contenedor-proximos">
+
+        <section class="card-lanzamiento">
+            <div class="columna-izquierda">
+                <span class="etiqueta-anio">Año 2026</span>
+                <div class="contenedor-mini-img">
+                    <img src="{{ url_for('static', filename='img/lanzamiento6.jpg') }}" alt="ForzaHorizon6">
+                </div>
+            </div>
+    
+            <div class="columna-contenido">
+                <div class="fila-superior">
+                    <div class="titulos">
+                        <a href="#" class="titulo-link">Forza Horizon 6</a>
+                        <span class="plataformas">PC | PS5 | Xbox Series X</span>
+                    </div>
+                </div>
+        
+                <p class="descripcion-juego">
+                    Te damos la bienvenida a Japón, un lugar de impresionantes contrastes entre lo rural y lo urbano donde descubrirás los secretos 
+                    ocultos en el mapa más extenso de Horizon hasta la fecha, lleno de verticalidad, biomas diversos y espectaculares experiencias de conducción. 
+                    Recorre los suburbios y las emblemáticas calles del centro o ponte a prueba en los muelles y distritos industriales de Tokio, la urbe más grande 
+                    jamás vista en un juego de Forza Horizon y el hogar de todo fan del mundo del motor. <br>
+                    Descubre los asombrosos paisajes de Japón con más de 550 coches reales y conviértete en una leyenda del automovilismo en el Festival Horizon. 
+                    Comienza tu viaje como turista y explora un mundo lleno de la mejor música y cultura japonesa. Construye una propiedad en el valle, 
+                    obtén increíbles casas y exhibe tu preciada colección de coches en garajes personalizables. Recorre las carreteras con tus amigos, 
+                    únete a concentraciones de coches por todo Japón, da rienda suelta a tu imaginación con EventLab y construid juntos en Horizon CoLab. <br>
+                    Tu viaje para convertirte en leyenda de Horizon comienza aquí <br>
+                    ¡Japón te espera!
+                </p>
+        
+                <p class="genero"><strong>Género:</strong> Mundo abierto / Carreras</p>
+            </div>
+        </section>
+    </main>
+ 
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/consola.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    
+    <main class="contenedor-Consolas">
+        <a href="{{ url_for('PS5') }}" class="link-titulo">
+            <h1 class="titulo-consolas">PlayStation 5</h1>
+        </a>
+    </main>
+
+    <main class="contenedor-Consolas">
+        <a href="{{ url_for('PS4') }}" class="link-titulo">
+            <h1 class="titulo-consolas">PlayStation 4</h1>
+        </a>
+    </main>
+
+    <main class="contenedor-Consolas">
+        <a href="{{ url_for('XBOX') }}" class="link-titulo">
+            <h1 class="titulo-consolas">Xbox</h1>
+        </a>
+    </main>
+
+    <main class="contenedor-Consolas">
+        <a href="{{ url_for('NintendoSwitch') }}" class="link-titulo">
+            <h1 class="titulo-consolas">Nintendo Switch</h1>
+        </a>
+    </main>
+
+    <main class="contenedor-Consolas">
+        <a href="{{ url_for('PC') }}" class="link-titulo">
+            <h1 class="titulo-consolas">PC</h1>
+        </a>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

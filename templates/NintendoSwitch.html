@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas - Nintendo Switch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/NintendoSwitch.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+
+    
+    <main class="contenedor-Consolas">
+        <h1 class="titulo-consolas">Nintendo Switch</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_1.png') }}" alt="Nintendo Switch Lite">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>Nintendo Switch Lite</h3>
+                    <p class="categoria">Nintendo Switch</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 799.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_2.png') }}" alt="Nintendo Switch (Modelo Original V1)">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Nintendo Switch (Modelo Original V1)</h3>
+                    <p class="categoria">Nintendo Switch</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 949.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_3.png') }}" alt="Nintendo Switch (Modelo Estándar V2)">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Nintendo Switch (Modelo Estándar V2)</h3>
+                    <p class="categoria">Nintendo Switch</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 1,199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_4.png') }}" alt="Nintendo Swtich OLED">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Nintendo Switch OLED</h3>
+                    <p class="categoria">Nintendo Switch</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 1,449.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main> 
+
+
+    <main class="contenedor-Juegos">
+        <h1 class="titulo-Juegos">Juegos de la Nintendo Switch</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego1.png') }}" alt="The Legend of Zelda: Tears of the Kingdom">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>The Legend of Zelda: Tears of the Kingdom</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 249.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego2.png') }}" alt="Super Mario Odyssey">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Super Mario Odyssey</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 209.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego3.png') }}" alt="Mario Kart 8 Deluxe">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Mario Kart 8 Deluxe</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 209.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego4.png') }}" alt="Super Smash Bros. Ultimate">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Super Smash Bros. Ultimate</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 219.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego5.png') }}" alt="Animal Crossing: New Horizons">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Animal Crossing: New Horizons</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 209.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego6.png') }}" alt="Pokémon Scarlet / Violet">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Pokémon Scarlet / Violet</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego7.png') }}" alt="Metroid Dread">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Metroid Dread</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 189.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/NintendoSwitch_juego8.png') }}" alt="Splatoon 3">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Splatoon 3</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+        </div>
+    </main> 
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systemic Play</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECCIÓN DE PRODUCTOS EN OFERTA -->
+    <section class="banner_ofertas">
+        <button class="flecha flecha_izq" onclick="cambiarSlide(-1)">◀</button>
+        
+        <div class="visor_slider">
+            <!-- La "tira" que contiene las imágenes de ofertas -->
+            <div class="contenedor_slides">
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='img/deslizar1.jpg') }}" alt="Deslizar_1">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='img/deslizar2.jpg') }}" alt="Deslizar_2">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='img/deslizar3.jpg') }}" alt="Deslizar_3">
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='img/deslizar4.jpg') }}" alt="Deslizar_4">
+                </div>
+            </div>
+        </div>
+
+        <button class="flecha flecha_der" onclick="cambiarSlide(+1)">▶</button>
+    </section>
+
+    <main class="contenedor_principal">
+        <h2 class="titulo_seccion">JUEGOS EN TENDENCIA</h2>
+
+        <div class="botones_videojuegos">
+            <div class="columna_plataforma">
+                    <div class="tarjeta_juego">
+                        <a href="paginas/pagina -juegos/Diablo.html">
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/producto_tendencia1.jpg') }}" alt="producto_tendencia1">
+                        <span class="etiqueta_descuento">-60%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Diablo IV</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 219.90</span>
+                            <span class="precio_ahora">S/ 131.94</span>
+                        </div>
+                    </div>    
+                </div>
+                </a>
+            </div>
+
+            <div class="columna_plataforma">
+                    <div class="tarjeta_juego">
+			<a href="paginas/pagina -juegos/callofduty.html">
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/producto_tendencia2.jpg') }}" alt="producto_tendencia2">
+                        <span class="etiqueta_descuento">-70%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Call of Duty: Black Ops 7</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 209.90</span>
+                            <span class="precio_ahora">S/ 146.93</span>
+                        </div>
+                    </div>    
+                </div>
+                </a>
+            </div>
+
+            <div class="columna_plataforma">
+                    <div class="tarjeta_juego">
+                        <a href="paginas/pagina -juegos/motogp26.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/producto_tendencia3.jpg') }}" alt="producto_tendencia3">
+                        <span class="etiqueta_descuento">-50%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Moto GP 26</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 299.90</span>
+                            <span class="precio_ahora">S/ 149.95</span>
+                        </div>
+                    </div>    
+                </div>
+                </a>
+            </div>
+
+            <div class="columna_plataforma">
+                    <div class="tarjeta_juego">
+                        <a href="paginas/pagina -juegos/residentevil9.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/producto_tendencia4.jpg') }}" alt="producto_tendencia4">
+                        <span class="etiqueta_descuento">-60%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Resident Evil Requiem</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 299.00</span>
+                            <span class="precio_ahora">S/ 179.40</span>
+                        </div>
+                    </div>    
+                </div>
+                </a>
+            </div>
+
+            <div class="columna_plataforma">
+                    <div class="tarjeta_juego">
+                        <a href="paginas/pagina -juegos/nomaysky.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/producto_tendencia5.jpg') }}" alt="producto_tendencia5">
+                        <span class="etiqueta_descuento">-50%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">No Man's Sky</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 249.90</span>
+                            <span class="precio_ahora">S/ 124.95</span>
+                        </div>
+                    </div>    
+                </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <section class="botones_plataformas">
+        <h2>OFERTAS EN VIDEOJUEGOS</h2>
+        <div class="botones_videojuegos">
+            <!-- Bloque PS5 MODIFICADO-->
+            <div class="columna_plataforma">
+                
+                <a href="{{ url_for('PS5') }}" class="btn_plataforma">PS5</a>
+
+                <div class="tarjeta_juego">
+                    <a href="paginas/pagina -juegos/wwe.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/oferta_1.jpg') }}" alt="Oferta PS5">
+                        <span class="etiqueta_descuento">-60%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">WWE 2K24 Deluxe Edition</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 249.90</span>
+                            <span class="precio_ahora">S/ 99.90</span>
+                        </div>
+                    </div>    
+                </div>
+                 </a>
+            </div>
+
+            <!-- Bloque PS4 MODIFICADO-->
+            <div class="columna_plataforma">
+                <a href="{{ url_for('PS4') }}" class="btn_plataforma">PS4</a>
+
+                <div class="tarjeta_juego">
+                      <a href="paginas/pagina -juegos/uncharted.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/oferta_2.jpg') }}" alt="Oferta PS4">
+                        <span class="etiqueta_descuento">-70%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">UNCHARTED The Nathan Drake Collection</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 129.90</span>
+                            <span class="precio_ahora">S/ 38.97</span>
+                        </div>
+                    </div>    
+                </div>
+                 </a>
+            </div>
+
+            <!-- Bloque PC MODIFICADO-->
+            <div class="columna_plataforma">
+                <a href="{{ url_for('PC') }}" class="btn_plataforma">PC</a>
+
+                <div class="tarjeta_juego">
+                    <a href="paginas/pagina -juegos/7daystodie.html">
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/oferta_3.jpg') }}" alt="Oferta PC">
+                        <span class="etiqueta_descuento">-50%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">7 Days to Die</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 89.99</span>
+                            <span class="precio_ahora">S/ 44.90</span>
+                        </div>
+                    </div>    
+                </div>
+                 </a>
+            </div>
+
+            <!-- Bloque Nintendo Switch MODIFICADO-->
+            <div class="columna_plataforma">
+                <a href="{{ url_for('NintendoSwitch') }}" class="btn_plataforma">Nitendo Switch</a>
+                <div class="tarjeta_juego">
+                    <a href="paginas/pagina -juegos/supersmash.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/oferta_4.jpg') }}" alt="Oferta Switch">
+                        <span class="etiqueta_descuento">-60%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Super Smash Bros.™ Ultimate</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 239.00</span>
+                            <span class="precio_ahora">S/ 95.96</span>
+                        </div>
+                    </div>    
+                </div>
+                 </a>
+            </div>
+
+            <!-- Bloque XBOX MODIFICADO-->
+            <div class="columna_plataforma">
+                <a href="{{ url_for('XBOX') }}" class="btn_plataforma">XBOX</a>
+
+                <div class="tarjeta_juego">
+                      <a href="paginas/pagina -juegos/alanwake.html">
+
+                    <div class="img_tendencia">
+                        <img src="{{ url_for('static', filename='img/oferta_5.jpg') }}" alt="Oferta XBOX">
+                        <span class="etiqueta_descuento">-50%</span>
+                    </div>
+        
+                    <div class="info_juego">
+                        <p class="titulo_juego">Alan Wake</p>
+                        <div class="precios">
+                            <span class="precio_antes">S/ 100.00</span>
+                            <span class="precio_ahora">S/ 50.00</span>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+             </a>
+        </div>
+
+    </section>
+    
+
+    <!-- SECCIÓN DE RESEÑAS  -->
+    <section class="seccion_resenas">
+        <h3>Reseñas</h3>
+        <div class="caja_resenas">
+            <div class="resena">"Muy buena atención"</div>
+            <div class="resena">"Los mejores precios de PS5"</div>
+            <div class="resena">"Navegación rápida y eficaz"</div>
+            <div class="resena">"Buen soporte técnico las 24hrs"</div>
+        </div>
+    </section>
+
+    <div class="contacto_flotante">
+        <div class="icono_chat">
+            <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp"> 
+        </div>
+        <span class="texto_contacto">Comunícate con Nosotros</span>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2026 Systemic Play</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>
