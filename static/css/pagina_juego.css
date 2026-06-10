@@ -231,75 +231,7 @@ header {
     background-color: #1e293b;
     color: #38bdf8;
 }
-/* --- REPETIR TODO LO ANTERIOR EN TODOS LOS CSS --- dsddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd*/
-
-.conetendor{
-    display: grid;                            /*utiliza el modelo de grid para organizar
-                                                 los elementos dentro del contenedor*/
-
-    grid-template-columns: repeat(2, 1fr);    /*3 columnas de igual tamaño*/
-
-    padding: 40px;                            /*espacio alrededor del contenedor*/
-}
-
-.estrellas {
-  color: #9ca2eb; /* Color gris por defecto */
-  font-size: 3rem;
-}
-
-.estrellas span:hover,
-.estrellas span:hover ~ span {
-  color: #ffffff; /* Color dorado al pasar el ratón */
-}
-
-.agregar-carrito {
-
-    display: flex;
-
-    gap:10%;
-
-
-}
-
-.selector-cantidad {
-  display: inline-flex; /* Los mantiene en línea y juntos */
-  border: 1px solid #ddd3d3; /* El único borde exterior */
-  border-radius: 10px;
-  overflow: hidden; /* Corta las esquinas de los botones para que sigan el radio */
-  width: 20%;  /* Ajusta según prefieras */
-  
-
-}
-
-.selector-cantidad button, 
-.selector-cantidad input {
-  border: none;        /* Quitamos bordes individuales */
-  background: #fff;    /* Fondo blanco para todos */
-  height: 40px;        /* Misma altura para todos */
-  margin: 0;           /* Eliminamos cualquier margen residual */
-  padding: 0;
-  outline: none;       /* Quita el borde azul al hacer clic */
-}
-
-.selector-cantidad button {
-  width: 50%;
-  cursor: pointer;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.selector-cantidad input {
-  width: 50px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  /* Añadimos líneas divisorias solo a los lados del número */
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-  
-}
+/* --- REPETIR TODO LO ANTERIOR EN TODOS LOS CSS --- */
 
 
 /* RESEÑAS */
@@ -387,190 +319,198 @@ footer {
 } 
 
 
-
-
-/*dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd */
-
-
-
-.carrousel{
-    width: 100%;
-
-    
+.contenedor_detalle {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #020617;
+    min-height: 80vh;
 }
 
-.conteCarrousel{
-    width: 190%;
-    height: 700px;
+.tarjeta_juego {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #0f172a; /* Este es el color oscuro de fondo del recuadro */
+    padding: 30px;            /* Espacio interno para que no choque con los bordes */
+    border-radius: 15px;      /* Bordes redondeados */
+    border: 1px solid #1e293b; /* Opcional: añade un borde sutil para darle profundidad */
+}
+.img_tendencia {
+    position: relative; /* Clave para que el icono del carrito flote aquí */
+    flex: 1;
+    max-width: 450px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.itemCarrousel{
-    position: relative;
-    width: 50%;
-    height: 100%;
-}
-
-.itemCarrouselTarjeta{
+.img_tendencia img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.itemCarrouselArrows{
+/* Estilo para el icono de carrito flotante */
+.btn-carrito-overlay {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%; 
+    top: 15px;
+    right: 15px;
+    background: #0ea5e9;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* --- NUEVOS ESTILOS PARA LA COLUMNA DE INFO --- */
+.col-info {
+    flex: 1; /* Ocupa el espacio restante al lado de la imagen */
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 15px;
+}
+
+.titulo_juego {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f8fafc;
+}
+
+.descripcion, .caracteristicas {
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.caracteristicas ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.caracteristicas li {
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.caracteristicas li::before {
+    content: "•";
+    color: #38bdf8;
+    margin-right: 8px;
+}
+
+/* --- ESTILOS DE PRECIO Y BOTÓN --- */
+.info_inferior {
+    margin-top: auto; /* Empuja todo al final de la tarjeta */
+    border-top: 1px solid #1e293b;
+    padding-top: 20px;
+}
+
+.precios {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px; 
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-.itemCarrouselArrows > i:hover {
-    cursor: pointer;
-}
-
-#itemCarrousel-1 img {
-    background-color: rgb(226, 50, 50);
-
-    width:60%;
-    height:90%;
-
-}
-
-#itemCarrousel-2 img {
-    background-color: rgb(50, 200, 226);
-
-    width:100%;
-    height:80%;
-
-}
-
-#itemCarrousel-3 img{
-    background-color: rgb(200, 226, 50);
-
-     width:100%;
-    height:80%;
-}
-
-.conteCarrouselController{
-    width: 100%;
+/* Contenedor principal de los precios */
+.contenedor-precios {
     display: flex;
-    justify-content: space-evenly;
+    gap: 30px; /* Espacio entre la columna de "antes" y "ahora" */
+    margin-bottom: 20px;
 }
 
-.conteCarrouselController > a{
-    text-decoration: none;
-    font-size: 2em;
-    color: grey;
+/* Cada columna mantiene su alineación interna */
+.col-precio {
+    display: flex;
+    flex-direction: column; /* Apila el título sobre el precio */
+    align-items: flex-start;
 }
 
-.itemCarrouselArrows > a > i{
+.label-precio {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Ajustes específicos para los precios */
+.precio_antes {
+    text-decoration: line-through;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.precio_ahora {
+    font-size: 1.8rem;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.btn-comprar {
+    width: 100%;
+    padding: 15px;
+    background: #3b82f6;
     color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-img {
-
-    width:60%;
-    height:90%;
-
+.btn-comprar:hover {
+    background: #2563eb;
 }
 
-.holi1{
-    
-    margin-left: 20%;
-    margin-top: 3%;
-
+.slider-container {
+    position: relative;
+    width: 450px;    /* Ancho fijo para la imagen */
+    height: 450px;   /* Altura fija para que sea un cuadrado perfecto */
+    flex-shrink: 0;  /* Evita que el slider se encoja */
+    overflow: hidden;
+    border-radius: 15px;
 }
 
-.holi2{
-    
-    margin-left:1%;
-    margin-top: 10%;
-
-}
-.holi3{
-    
-    margin-left:1%;
-    margin-top: 10%;
-
-}
-    
-.cuadro1 h1 {
-
-    font-size: 50px;
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
 }
 
-.cuadro1 h2 {
-
-    font-size: 30px;
-}
-
-.cuadro1 h5 {
-
-    font-size: 18px;
-}
-
-.cuadro1 p {
-
-    font-size: 20px;
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Esto evita que se recorte el nombre o la imagen */
+    background: #020617; /* Fondo oscuro por si la imagen es pequeña */
 }
 
 
-/*diseño al boton para agregar el carrito*/
-.btn-carrito {
-    background-color: #3b82f6; /* El azul de tu logo */
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
-    border-radius: 8px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s ease;
-    width: 35%;  /* Ajusta según prefieras */
-    height: 40px;
-    font-size: 20px; /*tamaño de la letra*/
+    z-index: 10;
 }
 
-.btn-carrito:hover {
-    background-color: #2563eb;
-    transform: scale(1.1); /* Un pequeño efecto de aumento */
-}
-
-.btn-carrito i {
-    font-size: 1.1rem; /* Tamaño del icono */
-}
-
-/*darle detalle al apartado de detalles*/
-.Detalle{
-    margin-left: 80px;
-    padding: 10px;
-    font-size: 20px;
-}
-
-.Detalles h3 {
-    margin-left: 80px;
-    font-size: 50px;
-  
-}
-
-@media  (max-width:700px){
+.flecha_izq { left: 10px; }
+.flecha_der { right: 10px; }
 
 
-
- .sub_menu{
-    display: none;
-    margin-left: 80px;
-    font-size: 50px;
-    padding: 10px;
-
-  }
- 
-
+/* Responsivo: Si la pantalla es pequeña, se apilan verticalmente */
+@media (max-width: 768px) {
+    .contenedor-detalle-juego {
+        grid-template-columns: 1fr;
+    }
 }

@@ -336,18 +336,38 @@ header {
     position: relative;
 }
 
+/* 1. El visor es el marco, aquí fijamos el tamaño máximo */
 .visor_slider {
-    overflow: hidden;
-    width: 80%;
+    width: 100%;
+    max-width: 800px; /* Ajusta según tu diseño */
     margin: 0 auto;
+    overflow: hidden;
+    position: relative;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
+/* 2. La tira de imágenes */
 .contenedor_slides {
     display: flex;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* No usar porcentajes grandes aquí */
+}
+
+/* 3. El enlace (la unidad del carrusel) */
+.contenedor_slides .slide {
+    flex: 0 0 100%; /* Obliga a que cada slide ocupe el 100% del ancho del visor */
+    display: block;
+    height: 400px; /* Altura fija para que todas las imágenes sean iguales */
+    overflow: hidden;
+}
+
+/* 4. La imagen dentro del slide */
+.contenedor_slides .slide img {
     width: 100%;
+    height: 100%;      /* Forzamos a que llene el alto del contenedor */
+    object-fit: cover; /* Recorta para llenar el espacio sin deformar */
+    object-position: center;
+    display: block;
 }
 
 .slide {
@@ -688,3 +708,5 @@ footer {
     text-decoration: none;
     color: #e7e7e7;
 }
+
+

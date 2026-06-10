@@ -1,12 +1,17 @@
-// 1. Carrusel (Fuera del DOMContentLoaded si se llama desde el HTML)
-let indiceActual = 0;
-function cambiarSlide(direccion) {
-    const contenedor = document.querySelector('.contenedor_slides');
-    const slides = document.querySelectorAll('.slide');
-    if (!contenedor || slides.length === 0) return;
-
-    indiceActual = (indiceActual + direccion + slides.length) % slides.length;
-    contenedor.style.transform = `translateX(-${indiceActual * 100}%)`;
+/* --- CARRUSEL UNIVERSAL (Index y Diablo.html) --- */
+function cambiarSlide(direccion, selectorContenedor) {
+    const contenedor = document.querySelector(selectorContenedor);
+    
+    // CORRECCIÓN: Busca SOLO dentro del contenedor padre
+    const slides = contenedor.querySelectorAll('.slide'); 
+    
+    let indice = parseInt(contenedor.dataset.indice) || 0;
+    
+    // Aplicamos el módulo con la cantidad real de slides de este contenedor
+    indice = (indice + direccion + slides.length) % slides.length;
+    
+    contenedor.dataset.indice = indice;
+    contenedor.style.transform = `translateX(-${indice * 100}%)`;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -106,6 +111,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 carrito.splice(btn.dataset.index, 1);
                 actualizarYGuardar();
             };
+        });
+    }
+
+    const btnAgregarDetalle = document.querySelector('.btn-carrito'); 
+
+    if (btnAgregarDetalle && !btnAgregarDetalle.closest('.tarjeta_juego, .producto')) {
+        btnAgregarDetalle.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Capturamos la info desde la página actual
+            const nombre = document.querySelector('.nombre-juego')?.textContent.trim() || "Juego";
+            const precioTexto = document.querySelector('.precio')?.textContent || "0";
+            const precio = parseFloat(precioTexto.replace(/[^\d.]/g, ""));
+            const imagen = document.querySelector('img')?.src || "";
+            const cantidadInput = document.querySelector('.input-valor');
+            const cantidad = cantidadInput ? parseInt(cantidadInput.value) : 1;
+
+            // Agregamos al carrito usando la lógica que ya tienes
+            const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            const existe = carrito.find(item => item.nombre === nombre);
+            
+            if (existe) {
+                existe.cantidad += cantidad;
+            } else {
+                carrito.push({ nombre, precio, imagen, cantidad });
+            }
+
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+            alert(`${nombre} agregado al carrito`);
         });
     }
 
@@ -275,19 +309,32 @@ function iniciarSesionExitosa(email) {
   const botonSumar = document.querySelector('.btn-sumar');
   const inputCantidad = document.querySelector('.input-valor');
 
-  // 2. Función para restar
-  botonRestar.addEventListener('click', () => {
-    let valorActual = parseInt(inputCantidad.value);
-    // Evitamos que baje de 1
-    if (valorActual > 1) {
-      inputCantidad.value = valorActual - 1;
-    }
-  });
+if (botonRestar && botonSumar && inputCantidad) {
+    
+    // 2. Función para restar
+    botonRestar.addEventListener('click', () => {
+        let valorActual = parseInt(inputCantidad.value);
+        if (valorActual > 1) {
+            inputCantidad.value = valorActual - 1;
+        }
+    });
 
-  // 3. Función para sumar
-  botonSumar.addEventListener('click', () => {
-    let valorActual = parseInt(inputCantidad.value);
-    inputCantidad.value = valorActual + 1;
-  });
+    // 3. Función para sumar
+    botonSumar.addEventListener('click', () => {
+        let valorActual = parseInt(inputCantidad.value);
+        inputCantidad.value = valorActual + 1;
+    });
+}
 
-  e.preventDefault();
+//let indiceSlide = 0;
+//function cambiarSlide(direccion) {
+    //const wrapper = document.querySelector('.slider-wrapper');
+    //const slides = document.querySelectorAll('.slide');
+    
+   // indiceSlide += direccion;
+    
+   // if (indiceSlide >= slides.length) indiceSlide = 0;
+   // if (indiceSlide < 0) indiceSlide = slides.length - 1;
+    
+   // wrapper.style.transform = `translateX(-${indiceSlide * 100}%)`;
+//}

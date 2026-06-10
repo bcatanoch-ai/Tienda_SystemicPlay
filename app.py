@@ -52,5 +52,62 @@ def NintendoSwitch():
 def PC():
     return render_template('PC.html')
 
+# Acá agregaré los .html de las vista de juegos, accesorios y coleccionables
+@app.route('/Diablo')
+def Diablo():
+    return render_template('Diablo.html')
+
+@app.route('/Cod')
+def Cod():
+    return render_template('Cod.html')
+
+@app.route('/Motogp')
+def Motogp():
+    return render_template('Motogp.html')
+
+@app.route('/ResidentEvil')
+def ResidentEvil():
+    return render_template('ResidentEvil.html')
+
+@app.route('/NoManSky')
+def NoManSky():
+    return render_template('NoManSky.html')
+
+@app.route('/Wwe')
+def Wwe():
+    return render_template('Wwe.html')
+
+@app.route('/Uncharted')
+def Uncharted():
+    return render_template('Uncharted.html')
+
+@app.route('/DaysToDie')
+def DaysToDie():
+    return render_template('DaysToDie.html')
+
+@app.route('/SuperSmash')
+def SuperSmash():
+    return render_template('SuperSmash.html')
+
+@app.route('/AlanWake')
+def AlanWake():
+    return render_template('AlanWake.html')
+
+@app.route('/MortalKombat')
+def MortalKombat():
+    return render_template('MortalKombat.html')
+
+@app.route('/NintendoSwitch2')
+def NintendoSwitch2():
+    return render_template('NintendoSwitch2.html')
+
+@app.route('/PlayStationSpiderMan')
+def PlayStationSpiderMan():
+    return render_template('PlayStationSpiderMan.html')
+
+@app.route('/ForzaHorizon')
+def ForzaHorizon():
+    return render_template('ForzaHorizon.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
