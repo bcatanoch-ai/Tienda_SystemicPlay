@@ -109,5 +109,69 @@ def PlayStationSpiderMan():
 def ForzaHorizon():
     return render_template('ForzaHorizon.html')
 
+@app.route('/PortalPs5')
+def PortalPs5():
+    return render_template('PortalPs5.html')
+
+@app.route('/MandoPs5')
+def MandoPs5():
+    return render_template('MandoPs5.html')
+
+@app.route('/AudifonoPs5')
+def AudifonoPs5():
+    return render_template('AudifonoPs5.html')
+
+@app.route('/MandoXbox')
+def MandoXbox():
+    return render_template('MandoXbox.html')
+
+@app.route('/EstucheNs')
+def EstucheNs():
+    return render_template('EstucheNs.html')
+
+@app.route('/JoyConNs')
+def JoyConNs():
+    return render_template('JoyConNs.html')
+
+@app.route('/ComboLogitech')
+def ComboLogitech():
+    return render_template('ComboLogitech.html')
+
+@app.route('/AudifonoLogitech')
+def AudifonoLogitech():
+    return render_template('AudifonoLogitech.html')
+
+@app.route('/FiguraGoku')
+def FiguraGoku():
+    return render_template('FiguraGoku.html')
+
+@app.route('/FiguraTeach')
+def FiguraTeach():
+    return render_template('FiguraTeach.html')
+
+@app.route('/FiguraLuffy')
+def FiguraLuffy():
+    return render_template('FiguraLuffy.html')
+
+@app.route('/FiguraChewbaca')
+def FiguraChewbaca():
+    return render_template('FiguraChewbaca.html')
+
+@app.route('/FiguraSpiderman')
+def FiguraSpiderman():
+    return render_template('FiguraSpiderman.html')
+
+@app.route('/FiguraMessi')
+def FiguraMessi():
+    return render_template('FiguraMessi.html')
+
+@app.route('/FiguraYoshi')
+def FiguraYoshi():
+    return render_template('FiguraYoshi.html')
+
+@app.route('/FiguraPokemon')
+def FiguraPokemon():
+    return render_template('FiguraPokemon.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

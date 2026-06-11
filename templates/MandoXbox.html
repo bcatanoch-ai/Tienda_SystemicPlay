@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANDO INALÁMBRICO XBOX ONE</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_juego.css') }}">
+   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+   <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+
+    <main class="contenedor_detalle">
+        <div class="tarjeta_juego">
+            
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <img src="{{ url_for('static', filename='img/accesorio4.jpg') }}" class="slide" alt="Diablo IV 1">
+                    <img src="{{ url_for('static', filename='img/juego_mandoxbox1.jpg') }}" class="slide" alt="Diablo IV 2">
+                    <img src="{{ url_for('static', filename='img/juego_mandoxbox2.jpg') }}" class="slide" alt="Diablo IV 3">
+                </div>
+                
+                <button class="flecha flecha_izq" onclick="cambiarSlide(-1, '.slider-wrapper', '.slider-wrapper .slide')">◀</button>
+                <button class="flecha flecha_der" onclick="cambiarSlide(+1, '.slider-wrapper', '.slider-wrapper .slide')">▶</button>
+                
+                <span class="etiqueta_descuento">-60%</span>
+            </div>
+
+            <div class="col-info">
+                <h2 class="titulo_juego">MANDO INALÁMBRICO XBOX ONE</h2>
+                
+                <div class="descripcion">
+                    <p>Conéctate, juega y disfruta del diseño modernizado del mando inalámbrico Xbox con superficies esculpidas y una geometría 
+                        refinada para una mayor comodidad durante el juego. Juega de forma inalámbrica o usa el cable USB-C de 2,7 m incluido 
+                        para disfrutar de una experiencia de juego con cable. Mantén el objetivo con un mando de dirección híbrido y agarre texturizado en los gatillos y botones.
+                        El mando de Xbox One también es compatible con PC que tenga Windows 10. Se puede conectar de manera inalámbrica siempre en cuando 
+                        su PC tenga receptor bluetooth, de lo contrario lo deberá conectar con el cable usb que le viene en esta presentación. compatible también con Android e IOS. </p>
+                </div>
+
+                <div class="caracteristicas">
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li>Conectividad: En los modelos posteriores de Xbox One se introdujo Bluetooth para conectarlo fácilmente a Windows 10/11 sin adaptadores adicionales.</li>
+                        <li>Cruceta híbrida y respuesta: Los sticks analógicos son sensibles y los gatillos cuentan con motores de vibración independientes </li>
+                        <li>Ergonomía superior: Diseño contorneado que reduce la fatiga en sesiones largas</li>
+                        <li>Puerto de audio: Incluye un puerto de 3.5 mm en la parte inferior para conectar directamente cualquier auricular con micrófono.</li>
+                    </ul>
+                </div>
+
+                <div class="info_inferior">
+                    <div class="contenedor-precios">
+                        <!-- Columna 1 -->
+                        <div class="col-precio">
+                            <span class="label-precio">Precio Antes:</span>
+                            <span class="precio_antes">S/ 349.00</span>
+                        </div>
+                        <!-- Columna 2 -->
+                        <div class="col-precio">
+                            <span class="label-precio">Precio Ahora:</span>
+                            <span class="precio_ahora">S/ 299.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <div class="contacto_flotante">
+        <div class="icono_chat">
+            <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp">  
+        </div>
+        <span class="texto_contacto">Comunícate con Nosotros</span>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2026 Systemic Play</p>
+    </footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

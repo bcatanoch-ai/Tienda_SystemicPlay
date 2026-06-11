@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIGURA BANDAI ONE PIECE MONKEY D. LUFFY</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/pagina_juego.css') }}">
+   <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+</head>
+<body>
+   <header>
+        <div class="logo">
+            <h1 class="logo">
+                <a href="{{ url_for('home') }}">Systemic Play</a>
+            </h1>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <nav class="opciones">
+
+            <div class="option">
+                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
+                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+
+    <main class="contenedor_detalle">
+        <div class="tarjeta_juego">
+            
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <img src="{{ url_for('static', filename='img/coleccionable3.jpg') }}" class="slide" alt="Diablo IV 1">
+                    <img src="{{ url_for('static', filename='img/juego_luffy1.jpg') }}" class="slide" alt="Diablo IV 2">
+                    <img src="{{ url_for('static', filename='img/juego_luffy2.jpg') }}" class="slide" alt="Diablo IV 3">
+                </div>
+                
+                <button class="flecha flecha_izq" onclick="cambiarSlide(-1, '.slider-wrapper', '.slider-wrapper .slide')">◀</button>
+                <button class="flecha flecha_der" onclick="cambiarSlide(+1, '.slider-wrapper', '.slider-wrapper .slide')">▶</button>
+                
+                <span class="etiqueta_descuento">-60%</span>
+            </div>
+
+            <div class="col-info">
+                <h2 class="titulo_juego">FIGURA BANDAI ONE PIECE MONKEY D. LUFFY</h2>
+                
+                <div class="descripcion">
+                    <p>Figura de colección Monkey D. Luffy Maximatic: representa al protagonista de One Piece con un alto nivel de detalle 
+                        y acabados de calidad. Fabricada en plástico resistente, cuenta con una altura de 17 cm y accesorios que complementan su exhibición. 
+                        Su diseño fiel al personaje la convierte en una excelente opción para coleccionistas y fanáticos del anime que buscan una pieza 
+                        destacada para su colección.</p>
+                </div>
+
+                <div class="caracteristicas">
+                    <h3>Características</h3>
+                    <ul>
+                        <li>Altura: 17 cm</li>
+                        <li>Fabricante: Bandai</li>
+                        <li>Material: Plástico</li>
+                        <li>Licencia: One Piece Anime</li>
+                        </ul>
+                </div>
+
+                <div class="info_inferior">
+                    <div class="contenedor-precios">
+                        <!-- Columna 1 -->
+                        <div class="col-precio">
+                            <span class="label-precio">Precio Antes:</span>
+                            <span class="precio_antes">S/ 149.00</span>
+                        </div>
+                        <!-- Columna 2 -->
+                        <div class="col-precio">
+                            <span class="label-precio">Precio Ahora:</span>
+                            <span class="precio_ahora">S/ 119.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <div class="contacto_flotante">
+        <div class="icono_chat">
+            <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp">  
+        </div>
+        <span class="texto_contacto">Comunícate con Nosotros</span>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2026 Systemic Play</p>
+    </footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

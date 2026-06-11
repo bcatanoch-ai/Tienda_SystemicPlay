@@ -50,28 +50,25 @@
 
         <div class="grid-productos">
             <!-- Producto 1 -->
-            <article class="card-producto">
-                <a href="pagina-accesorios/playportal.html">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio1.jpg') }}" alt="PsPortal">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>PLAYSTATION PORTAL PS5</h3>
-                    <p class="categoria">Reproductor remoto PlayStation Portal</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 899.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+            <div class="card-producto">
+                <a href="{{ url_for('PortalPs5') }}">
+                    <div class="imagen-producto">
+                        <img src="{{ url_for('static', filename='img/accesorio1.jpg') }}" alt="PsPortal">
+                        <span class="etiqueta-nuevo">Nuevo</span>
                     </div>
-                </div>
+                    <div class="info-producto">
+                        <h3>PLAYSTATION PORTAL PS5</h3>
+                        <p class="categoria">Reproductor remoto PlayStation Portal</p>
+                        <div class="precio-fila">
+                            <span class="precio">S/ 1100.00</span>
+                        </div>
+                    </div>
                 </a>
-            </article>
+            </div>
 
             <!-- Producto 2 -->
             <article class="card-producto">
-                <a href="pagina-accesorios/mandops5.html">
+                <a href="{{ url_for('MandoPs5') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio2.jpg') }}" alt="MandoPs5">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -80,10 +77,7 @@
                     <h3>MANDO DUALSENSE PS5 <br> GALATIC PURPLE</h3>
                     <p class="categoria">Mando DualSense Wireless Controller PS5</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 249.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 255.00</span>
                     </div>
                 </div>
                 </a>
@@ -91,7 +85,7 @@
 
             <!-- Producto 3 -->
             <article class="card-producto">
-                  <a href="pagina-accesorios/audifonopulse.html">
+                  <a href="{{ url_for('AudifonoPs5') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio3.jpg') }}" alt="AudifonoPs5">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -100,10 +94,7 @@
                     <h3>PS5 PLAYSTATION PULSE ELITE AUDIFONOS</h3>
                     <p class="categoria">Audífono PS5</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 349.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 729.90</span>
                     </div>
                 </div>
                 </a>
@@ -111,7 +102,7 @@
 
             <!-- Producto 4 -->
             <article class="card-producto">
-                 <a href="pagina-accesorios/mandoxbox.html">
+                 <a href="{{ url_for('MandoXbox') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio4.jpg') }}" alt="MandoXbox">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -120,10 +111,7 @@
                     <h3>MANDO INALÁMBRICO XBOX ONE</h3>
                     <p class="categoria">Mando Xbox</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 149.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 299.90</span>
                     </div>
                 </div>
                 </a>
@@ -131,7 +119,7 @@
 
             <!-- Producto 5 -->
             <article class="card-producto">
-                 <a href="pagina-accesorios/estucheswitch2.html">
+                 <a href="{{ url_for('EstucheNs') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio5.jpg') }}" alt="EstucheSwitch">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -140,10 +128,7 @@
                     <h3>ESTUCHE RÍGIDO DE VIAJERO NINTENDO SWITCH 2</h3>
                     <p class="categoria">Accesorio Nintendo Switch 2</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 39.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 89.90</span>
                     </div>
                 </div>
                 </a>
@@ -151,7 +136,7 @@
 
             <!-- Producto 6 -->
             <article class="card-producto">
-                 <a href="pagina-accesorios/joycons2.html">
+                 <a href="{{ url_for('JoyConNs') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio6.jpg') }}" alt="MandoSwitch">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -161,9 +146,6 @@
                     <p class="categoria">Joy-cons   </p>
                     <div class="precio-fila">
                         <span class="precio">S/ 249.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
                     </div>
                 </div>
                 </a>
@@ -171,7 +153,7 @@
 
             <!-- Producto 7 -->
             <article class="card-producto">
-                 <a href="pagina-accesorios/combologihtch.html">
+                 <a href="{{ url_for('ComboLogitech') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio7.jpg') }}" alt="Combo_Logitech">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -180,10 +162,7 @@
                     <h3>COMBO LOGITECH MK270 TECLADO Y MOUSE</h3>
                     <p class="categoria">Logitech</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 119.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 129.00</span>
                     </div>
                 </div>
                 </a>
@@ -191,7 +170,7 @@
 
             <!-- Producto 8 -->
             <article class="card-producto">
-                 <a href="pagina-accesorios/audifonog321.html">
+                 <a href="{{ url_for('AudifonoLogitech') }}">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/accesorio8.jpg') }}" alt="AudifonoLogitech">
                     <span class="etiqueta-nuevo">Nuevo</span>
@@ -200,10 +179,7 @@
                     <h3>LOGITECH G321 LIGHTSPEED AUDÍFONOS -    NEGRO</h3>
                     <p class="categoria">Auriculares</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 129.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">S/ 285.00</span>
                     </div>
                 </div>
                 </a>
