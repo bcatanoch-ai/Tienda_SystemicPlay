@@ -10,20 +10,32 @@
 <body>
     <header>
         <div class="logo">
-            <h1 class="logo">
-                <a href="{{ url_for('home') }}">Systemic Play</a>
-            </h1>
+            <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
             <input type="text" placeholder="Buscar...">
         </div>
-        <nav class="opciones">
+        
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                
+                {% if current_user.email == 'admin@systemic.com' %}
+                    <a href="{{ url_for('panel_admin') }}" style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Panel Admin</a>
+                    <span style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Hola, Admin</span>
+                {% else %}
+                    <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                        Hola, {{ current_user.nombre }}
+                    </span>
+                {% endif %}
+                
+                <a href="{{ url_for('logout') }}">Cerrar Sesión</a> 
 
-            <div class="option">
-                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
-                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
-            </div>
-        </nav>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
     </header>
 
     <nav class="sub_menu">
@@ -186,6 +198,19 @@
             </article>
         </div>
     </main> 
+
+    <a href="https://wa.me/51958310320?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="contacto_flotante">
+            <div class="icono_chat">
+                <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp"> 
+            </div>
+            <span class="texto_contacto">Comunícate con Nosotros</span>
+        </div>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Systemic Play</p>
+    </footer>
 
 
     <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>

@@ -3,27 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consolas - PlayStation4</title>
+    <title>Consolas - PlayStation 4</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/PS4.css') }}">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1 class="logo">
-                <a href="{{ url_for('home') }}">Systemic Play</a>
-            </h1>
+            <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
             <input type="text" placeholder="Buscar...">
         </div>
-        <nav class="opciones">
+        
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                
+                {% if current_user.email == 'admin@systemic.com' %}
+                    <a href="{{ url_for('panel_admin') }}" style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Panel Admin</a>
+                    <span style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Hola, Admin</span>
+                {% else %}
+                    <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                        Hola, {{ current_user.nombre }}
+                    </span>
+                {% endif %}
+                
+                <a href="{{ url_for('logout') }}">Cerrar Sesión</a> 
 
-            <div class="option">
-                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
-                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
-            </div>
-        </nav>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
     </header>
 
     <nav class="sub_menu">
@@ -38,247 +50,68 @@
                     <li><a href="{{ url_for('PC') }}">PC</a></li>
                 </ul>
             </li>
-            
             <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
             <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
             <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
         </ul>
     </nav>
 
-    
     <main class="contenedor-Consolas">
         <h1 class="titulo-consolas">PlayStation 4</h1>
-
         <div class="grid-productos">
-
-            <!-- Producto 1 -->
-            <article class="card-producto" >
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_1.png') }}" alt="PlayStation 4 Fat">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto" >
-                    <h3>PlayStation 4 Fat</h3>
-                    <p class="categoria">PlayStation 4</p>
-                    <div class="precio-fila" >
-                        <span class="precio">S/ 849.99</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 2 -->
+            {% for consola in consolas %}
             <article class="card-producto">
                 <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_2.png') }}" alt="PlayStation 4 Fat Mate">
+                    <img src="{{ url_for('static', filename='img/' + consola.img) }}" alt="{{ consola.nombre }}">
                     <span class="etiqueta-nuevo">Nuevo</span>
                 </div>
                 <div class="info-producto">
-                    <h3>PlayStation 4 Fat(MATE)</h3>
+                    <h3>{{ consola.nombre }}</h3>
                     <p class="categoria">PlayStation 4</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 949.99</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">{{ consola.precio }}</span>
+                        <button class="btn-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </article>
-
-            <!-- Producto 3 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_3.png') }}" alt="PlayStation 4 Slim">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>PlayStation 4 Slim</h3>
-                    <p class="categoria">PlayStation 4</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 1,299.99</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 4 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_4.png') }}" alt="PlayStation 4 Pro">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>PlayStation 4 Pro</h3>
-                    <p class="categoria">PlayStation 4</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 1699.99</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
+            {% endfor %}
         </div>
     </main> 
-
 
     <main class="contenedor-Juegos">
         <h1 class="titulo-Juegos">Juegos de la PlayStation 4</h1>
-
         <div class="grid-productos">
-
-            <!-- Producto 1 -->
-            <article class="card-producto" >
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego1.png') }}" alt="The Last of Us Part II">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto" >
-                    <h3>The Last of Us Part II</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila" >
-                        <span class="precio">S/ 149.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 2 -->
+            {% for juego in juegos %}
             <article class="card-producto">
                 <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego2.png') }}" alt="Ghost of Tsushima">
+                    <img src="{{ url_for('static', filename='img/' + juego.img) }}" alt="{{ juego.nombre }}">
                     <span class="etiqueta-nuevo">Nuevo</span>
                 </div>
                 <div class="info-producto">
-                    <h3>Ghost of Tsushima</h3>
+                    <h3>{{ juego.nombre }}</h3>
                     <p class="categoria">Juegos</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 159.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <span class="precio">{{ juego.precio }}</span>
+                        <button class="btn-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
             </article>
-
-            <!-- Producto 3 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego3.jpg') }}" alt="Marvel's Spider-Man">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>Marvel's Spider-Man</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 119.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 4 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego4.png') }}" alt="Bloodborne">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>Bloodborne</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 79.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 5 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego5.png') }}" alt="The Witcher 3: Wild Hunt">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>The Witcher 3: Wild Hunt</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 99.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 6 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego6.png') }}" alt="God of War (2018)">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>God of War (2018)</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 79.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 7 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego7.png') }}" alt="Uncharted 4: A Thief's End">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>Uncharted 4: A Thief's End</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 79.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Producto 8 -->
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/PlayStation4_juego8.png') }}" alt="Horizon Zero Dawn">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>Horizon Zero Dawn</h3>
-                    <p class="categoria">Juegos</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 79.90</span>
-                        <button class="btn-carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </div>
-                </div>
-            </article>
-
-
+            {% endfor %}
         </div>
     </main> 
+
+    <a href="https://wa.me/51958310320?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="contacto_flotante">
+            <div class="icono_chat">
+                <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp"> 
+            </div>
+            <span class="texto_contacto">Comunícate con Nosotros</span>
+        </div>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Systemic Play</p>
+    </footer>
 
     <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
 </body>

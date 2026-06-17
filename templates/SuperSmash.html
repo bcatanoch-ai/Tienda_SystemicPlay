@@ -11,20 +11,22 @@
 <body>
    <header>
         <div class="logo">
-            <h1 class="logo">
-                <a href="{{ url_for('home') }}">Systemic Play</a>
-            </h1>
+            <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
             <input type="text" placeholder="Buscar...">
         </div>
-        <nav class="opciones">
-
-            <div class="option">
-                <a href="{{ url_for('login') }}" class="option" id="auth-link">Iniciar Sesión</a>
-                <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
-            </div>
-        </nav>
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                    Hola, {{ current_user.nombre }}
+                </span>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
     </header>
 
     <nav class="sub_menu">
@@ -102,14 +104,15 @@
 
 
 
-    <div class="contacto_flotante">
-        <div class="icono_chat">
-            <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp">  
+    <a href="https://wa.me/51958310320?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="contacto_flotante">
+            <div class="icono_chat">
+                <img src="{{ url_for('static', filename='img/WhatsApp.webp') }}" alt="WhatsApp"> 
+            </div>
+            <span class="texto_contacto">Comunícate con Nosotros</span>
         </div>
-        <span class="texto_contacto">Comunícate con Nosotros</span>
-    </div>
+    </a>
 
-    
     <footer>
         <p>&copy; 2026 Systemic Play</p>
     </footer>

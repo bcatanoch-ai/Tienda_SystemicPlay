@@ -574,3 +574,61 @@ img {
  
 
 }
+
+
+/* BOTÓN FLOTANTE DINÁMICO */
+.contacto_flotante {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #cbd5e1;
+    
+    /* Inicialmente solo mostramos el círculo del logo */
+    width: 60px; 
+    height: 60px;
+    padding: 0;
+    
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    
+    /* Transición suave para el ancho */
+    transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden; /* Oculta el texto cuando el botón es pequeño */
+}
+
+/* Estado al pasar el mouse */
+.contacto_flotante:hover {
+    width: 260px;
+    padding-left: 15px;
+}
+
+.icono_chat {
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icono_chat img {
+    width: 35px;
+    height: 35px;
+    mix-blend-mode: multiply; 
+    filter: contrast(1.2);
+}
+
+.texto_contacto {
+    color: white;
+    font-weight: bold;
+    opacity: 0; /* Invisible al inicio */
+    transition: opacity 0.3s ease;
+    padding-right: 20px;
+}
+
+.contacto_flotante:hover .texto_contacto {
+    opacity: 1;
+}

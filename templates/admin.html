@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systemic Play - Panel Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .stat-card { cursor: pointer; transition: transform 0.2s; }
+        .stat-card:hover { transform: scale(1.03); }
+        /* Clase para ocultar filas */
+        .hidden-row { display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="{{ url_for('home') }}">Systemic Play</a></div>
+        <div class="busqueda"><input type="text" placeholder="Buscar..."></div>
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                {% if current_user.email == 'admin@systemic.com' %}
+                    <a href="{{ url_for('panel_admin') }}" style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Panel Admin</a>
+                    <span style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Hola, Admin</span>
+                {% else %}
+                    <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">Hola, {{ current_user.nombre }}</span>
+                {% endif %}
+                <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    <section class="admin-dashboard">
+        <div class="stats-grid">
+            <div class="stat-card" onclick="filtrarTabla('todas')">
+                <h3>Total Inventario</h3>
+                <p class="big-number">{{ total_productos }}</p>
+            </div>
+            
+            {% for cat, cantidad in inventario.items() %}
+            <div class="stat-card" onclick="filtrarTabla('{{ cat.lower() }}')">
+                <h3>{{ cat }}</h3>
+                <p class="big-number">{{ cantidad }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <main>
+        <h2 id="titulo-form">Agregar nuevo juego</h2>
+        <form id="form-juego" action="/agregar-juego" method="POST">
+            <input type="hidden" id="edit-id" name="id">
+            <input type="text" id="edit-nombre" name="nombre" placeholder="Nombre" required>
+            <input type="text" id="edit-precio" name="precio" placeholder="Precio" required>
+            <input type="number" id="edit-stock" name="stock" placeholder="Stock disponible" required>
+            <input type="text" id="edit-img" name="img" placeholder="Archivo imagen" required>
+            <select id="edit-categoria" name="categoria">
+                <option value="ps5">PS5</option>
+                <option value="ps4">PS4</option>
+                <option value="xbox">Xbox</option>
+                <option value="nintendo">Nintendo Switch</option>
+                <option value="pc">PC</option>
+            </select>
+            <button type="submit" id="btn-submit">Agregar Juego</button>
+            <button type="button" onclick="limpiarForm()">Cancelar</button>
+        </form>
+
+        <hr><br>
+        <h2 id="titulo-inventario">Inventario de Juegos</h2>
+
+        <table id="tabla-juegos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for juego in juegos %}
+                <tr class="fila-juego" data-cat="{{ juego.categoria.lower() }}">
+                    <td>{{ juego.id }}</td>
+                    <td>{{ juego.nombre }}</td>
+                    <td>{{ juego.categoria }}</td>
+                    <td>{{ juego.precio }}</td>
+                    <td>{{ juego.stock }}</td>
+                    <td>
+                        <button onclick="prepararEdicion(this)" 
+                                data-id="{{ juego.id }}" 
+                                data-nombre="{{ juego.nombre }}" 
+                                data-precio="{{ juego.precio }}"
+                                data-stock="{{ juego.stock }}" 
+                                data-img="{{ juego.img }}" 
+                                data-cat="{{ juego.categoria }}">Editar</button>
+                        
+                        <a href="{{ url_for('eliminar_juego', id=juego.id) }}" 
+                           onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        function prepararEdicion(boton) {
+            document.getElementById('titulo-form').innerText = "Editar: " + boton.getAttribute('data-nombre');
+            document.getElementById('edit-id').value = boton.getAttribute('data-id');
+            document.getElementById('edit-nombre').value = boton.getAttribute('data-nombre');
+            document.getElementById('edit-precio').value = boton.getAttribute('data-precio');
+            document.getElementById('edit-stock').value = boton.getAttribute('data-stock');
+            document.getElementById('edit-img').value = boton.getAttribute('data-img');
+            document.getElementById('edit-categoria').value = boton.getAttribute('data-cat');
+            document.getElementById('btn-submit').innerText = "Guardar Cambios";
+            document.getElementById('form-juego').action = "/actualizar-juego";
+            window.scrollTo(0, 0);
+        }
+
+        function limpiarForm() {
+            document.getElementById('titulo-form').innerText = "Agregar nuevo juego";
+            document.getElementById('form-juego').reset();
+            document.getElementById('edit-id').value = "";
+            document.getElementById('btn-submit').innerText = "Agregar Juego";
+            document.getElementById('form-juego').action = "/agregar-juego";
+        }
+
+        function filtrarTabla(categoria) {
+            const filas = document.querySelectorAll('.fila-juego');
+            const titulo = document.getElementById('titulo-inventario');
+            
+            // Actualizamos el título según la categoría
+            if (categoria === 'todas') {
+                titulo.innerText = "Inventario de Juegos";
+            } else {
+                // Capitalizamos la primera letra de la categoría para que se vea bien (ej: ps5 -> PS5)
+                titulo.innerText = "Inventario de Juegos (" + categoria.toUpperCase() + ")";
+            }
+
+            // Filtramos las filas
+            filas.forEach(fila => {
+                if (categoria === 'todas' || fila.getAttribute('data-cat') === categoria) {
+                    fila.classList.remove('hidden-row');
+                } else {
+                    fila.classList.add('hidden-row');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
