@@ -61,28 +61,50 @@
     </nav>
 
     <main class="contenedor-coleccionables">
-    <h1 class="titulo-coleccionables">Accesorios Consolas</h1>
+        <h1 class="titulo-coleccionables">Accesorios Consolas</h1>
 
-    <div class="grid-productos">
-        {% for item in accesorios %}
-        <article class="card-producto">
-            <a href="#"> 
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/' + item.img) }}" alt="{{ item.nombre }}">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>{{ item.nombre }}</h3>
-                    <p class="categoria">{{ item.categoria }}</p>
-                    <div class="precio-fila">
-                        <span class="precio">{{ item.precio }}</span>
+        <div class="grid-productos">
+            {% for item in accesorios %}
+            <article class="card-producto">
+
+                {% if item.nombre == "PLAYSTATION PORTAL PS5" %}
+                    <a href="{{ url_for('PortalPs5') }}">
+                {% elif item.nombre == "MANDO DUALSENSE PS5 GALATIC PURPLE" %}
+                    <a href="{{ url_for('MandoPs5') }}">
+                {% elif item.nombre == "PS5 PLAYSTATION PULSE ELITE AUDIFONOS" %}
+                    <a href="{{ url_for('AudifonoPs5') }}">
+                {% elif item.nombre == "MANDO INALÁMBRICO XBOX ONE" %}
+                    <a href="{{ url_for('MandoXbox') }}">
+                {% elif item.nombre == "ESTUCHE RÍGIDO DE VIAJERO NINTENDO SWITCH 2" %}
+                    <a href="{{ url_for('EstucheNs') }}">
+                {% elif item.nombre == "JOY-CON NINTENDO SWITCH 2" %}
+                    <a href="{{ url_for('JoyConNs') }}">
+                {% elif item.nombre == "COMBO LOGITECH MK270 TECLADO Y MOUSE" %}
+                    <a href="{{ url_for('ComboLogitech') }}">
+                {% elif item.nombre == "LOGITECH G321 LIGHTSPEED AUDÍFONOS" %}
+                    <a href="{{ url_for('AudifonoLogitech') }}">
+                {% else %}
+                    <a href="#">
+                {% endif %}
+
+                    <div class="imagen-producto">
+                        <img src="{{ url_for('static', filename='img/' + item.img) }}" alt="{{ item.nombre }}">
+                        <span class="etiqueta-nuevo">Nuevo</span>
                     </div>
-                </div>
-            </a>
-        </article>
-        {% endfor %}
-    </div>
-</main> 
+
+                    <div class="info-producto">
+                        <h3>{{ item.nombre }}</h3>
+                        <p class="categoria">{{ item.categoria }}</p>
+                        <div class="precio-fila">
+                            <span class="precio">{{ item.precio }}</span>
+                        </div>
+                    </div>
+
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+    </main>
 
     <a href="https://wa.me/51958310320?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="contacto_flotante">

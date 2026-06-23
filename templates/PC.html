@@ -57,7 +57,7 @@
     <main class="contenedor-Juegos">
         <h1 class="titulo-Juegos">Juegos Para La PC</h1>
         <div class="grid-productos">
-            {% for juego in juegos_pc %}
+            {% for juego in juegos %}
             <article class="card-producto">
                 <div class="imagen-producto">
                     <img src="{{ url_for('static', filename='img/' + juego.img) }}" alt="{{ juego.nombre }}">

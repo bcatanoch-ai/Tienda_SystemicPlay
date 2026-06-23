@@ -66,11 +66,32 @@
         <div class="grid-productos">
             {% for item in coleccionables %}
             <article class="card-producto">
-                <a href="#"> 
+
+                {% if item.nombre == "FIGURA BANDAI GOKU ULTRA INSTINTO" %}
+                    <a href="{{ url_for('FiguraGoku') }}">
+                {% elif item.nombre == "FIGURA BANDAI ONE PIECE DXF TEACH" %}
+                    <a href="{{ url_for('FiguraTeach') }}">
+                {% elif item.nombre == "FIGURA BANDAI ONE PIECE MONKEY D. LUFFY" %}
+                    <a href="{{ url_for('FiguraLuffy') }}">
+                {% elif item.nombre == "FIGURA STAR WARS CHEWBACA" %}
+                    <a href="{{ url_for('FiguraChewbaca') }}">
+                {% elif item.nombre == "FUNKO POP MARVEL SPIDER-MAN" %}
+                    <a href="{{ url_for('FiguraSpiderman') }}">
+                {% elif item.nombre == "FUNKO POP LIONEL MESSI N°1" %}
+                    <a href="{{ url_for('FiguraMessi') }}">
+                {% elif item.nombre == "FIGURA SUPER MARIO YOSHI" %}
+                    <a href="{{ url_for('FiguraYoshi') }}">
+                {% elif item.nombre == "POKÉMON TCG - CAJA DE ENTRENADOR" %}
+                    <a href="{{ url_for('FiguraPokemon') }}">
+                {% else %}
+                    <a href="#">
+                {% endif %}
+
                     <div class="imagen-producto">
                         <img src="{{ url_for('static', filename='img/' + item.img) }}" alt="{{ item.nombre }}">
                         <span class="etiqueta-nuevo">Nuevo</span>
                     </div>
+
                     <div class="info-producto">
                         <h3>{{ item.nombre }}</h3>
                         <p class="categoria">{{ item.categoria }}</p>
@@ -78,6 +99,7 @@
                             <span class="precio">{{ item.precio }}</span>
                         </div>
                     </div>
+
                 </a>
             </article>
             {% endfor %}
