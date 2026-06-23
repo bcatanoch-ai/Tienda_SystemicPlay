@@ -3,8 +3,12 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, curren
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+import os
 app.secret_key = 'clave_secreta_super_segura'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tienda.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    os.environ.get('DATABASE_URL')
+    or 'sqlite:///tienda.db'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -152,11 +156,6 @@ with app.app_context():
                 nuevo = Juego(nombre=item['nombre'], precio=item['precio'], categoria=categoria, img=item['img'])
                 db.session.add(nuevo)
         db.session.commit()
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 # --- RUTAS DE AUTENTICACIÓN ---
 @app.route('/login', methods=['GET', 'POST'])
@@ -353,7 +352,7 @@ def NintendoSwitch():
 @app.route('/PC')
 def PC():
     juegos_db = Juego.query.filter_by(categoria='pc').all()
-    return render_template('PC.html', juegos_pc=juegos_pc)
+    return render_template('PC.html', juegos=juegos_db)
 
 
 # Acá agregaré los .html de las vista de juegos, accesorios y coleccionables
