@@ -351,8 +351,8 @@ def NintendoSwitch():
 # --- RUTA PC ---
 @app.route('/PC')
 def PC():
-    juegos_db = Juego.query.filter_by(categoria='pc').all()
-    return render_template('PC.html', juegos=juegos_db)
+    juegos_db = Juego.query.filter_by(categoria='juegos_pc').all()
+    return render_template('PC.html', juegos_pc=juegos_pc)
 
 
 # Acá agregaré los .html de las vista de juegos, accesorios y coleccionables
