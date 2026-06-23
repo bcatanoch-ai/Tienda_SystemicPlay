@@ -12,7 +12,10 @@
             <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
-            <input type="text" placeholder="Buscar...">
+            <form action="{{ url_for('buscar') }}" method="GET">
+                <input type="text" name="q" placeholder="Buscar..." required>
+                <button type="submit" style="display:none;">Buscar</button>
+            </form>
         </div>
         
         <div class="opciones">

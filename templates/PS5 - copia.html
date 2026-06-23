@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas - PlayStation 5</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/PS5.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">Systemic Play</a>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                    Hola, {{ current_user.nombre }}
+                </span>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    
+    <main class="contenedor-Consolas">
+        <h1 class="titulo-consolas">PlayStation 5</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_1.jpg') }}" alt="PlayStation5">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>PlayStation 5</h3>
+                    <p class="categoria">PlayStation 5</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 2,199.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_2.jpg') }}" alt="PlayStation5Slim">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PlayStation 5 Slim</h3>
+                    <p class="categoria">PlayStation 5</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 2,799.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_3.webp') }}" alt="PlayStation5Pro">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PlayStation 5 Pro</h3>
+                    <p class="categoria">PlayStation 5</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 3,999.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_4.png') }}" alt="PlayStation5Aniversario">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PlayStation 5 Pro 30th Anniversary Limited Edition</h3>
+                    <p class="categoria">PlayStation 5</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 5,999.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main> 
+
+
+    <main class="contenedor-Juegos">
+        <h1 class="titulo-Juegos">Juegos de la PlayStation 5</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego1.png') }}" alt="Marvel's Spider-Man 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>Marvel's Spider-Man 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 279.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego2.png') }}" alt="God of War Ragnarök">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>God of War Ragnarök</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 229.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego3.png') }}" alt="Horizon Forbidden West">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Horizon Forbidden West</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 179.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego4.png') }}" alt="Elden Ring">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Elden Ring</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 239.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego5.png') }}" alt="Final Fantasy VII Rebirth">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Final Fantasy VII Rebirth</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 279.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego6.png') }}" alt="Demon's Souls">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Demon's Souls</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 189.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego7.png') }}" alt="Ratchet & Clank: Rift Apart">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Ratchet & Clank: Rift Apart</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 179.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PlayStation5_juego8.png') }}" alt="Gran Turismo 7">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Gran Turismo 7</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 229.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+        </div>
+    </main> 
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

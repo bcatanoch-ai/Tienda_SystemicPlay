@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas - PC</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/PC.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">Systemic Play</a>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                    Hola, {{ current_user.nombre }}
+                </span>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    
+    <main class="contenedor-Consolas">
+        <h1 class="titulo-consolas">PC Gamer</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_1.png') }}" alt="PC Gamer Entry">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>PC Gamer Entry</h3>
+                    <p class="categoria">PC Gamer</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 1,800.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_2.png') }}" alt="PC Gamer Mid Range">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PC Gamer Mid Range</h3>
+                    <p class="categoria">PC Gamer</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 3,200.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_3.png') }}" alt="PC Gamer High End">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PC Gamer High End</h3>
+                    <p class="categoria">PC Gamer</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 5,500.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_4.png') }}" alt="PC Gamer Ultra">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>PC Gamer Ultra</h3>
+                    <p class="categoria">PC Gamer</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 9,500.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main> 
+
+
+    <main class="contenedor-Juegos">
+        <h1 class="titulo-Juegos">Juegos Para La PC Gamer</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos1.png') }}" alt="Cyberpunk 2077">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>Cyberpunk 2077</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 159.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos2.png') }}" alt="Dead Island 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Dead Island 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 140.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos3.jpg') }}" alt="Grand Theft Auto V">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Grand Theft Auto V</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 105.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos4.jpg') }}" alt="Red Dead Redemption 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Red Dead Redemption 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos5.png') }}" alt="Helldivers 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Helldivers 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 150.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos6.png') }}" alt="Palworld">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Palworld</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 89.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos7.png') }}" alt="Project Zomboid">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Project Zomboid</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 45.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_juegos8.png') }}" alt="Stardew Valley">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Stardew Valley</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 40.00</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+
+        </div>
+    </main> 
+
+
+
+
+
+
+    <main class="contenedor-Juegos">
+        <h1 class="titulo-Juegos">Accesorios Para La PC Gamer</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio1.jpg') }}" alt="Tarjeta Gráfica">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>ASUS Dual GeForce RTX™ 5060 Ti 8GB</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 1,499.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio2.jpg') }}" alt="Almacenamiento">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Samsung SSD 9100 PRO 1TB</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 949.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio3.jpg') }}" alt="Impresora">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Epson EcoTank ET-4950</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 1,399.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio4.jpg') }}" alt="Monitor">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Samsung 49" Odyssey OLED (G93SC)</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 3,099.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio5.jpg') }}" alt="HDMI">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Highwings - Cable HDMI 4K 60Hz</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 19.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio6.jpg') }}" alt="Proyector">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Epson Lifestudio Pop Plus 4K PRO-UHD</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 2,579.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio7.jpg') }}" alt="Mando Inalámbrico">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Turtle Beach Afterglow Wireless RGB Gaming Controller</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 219.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/PC_accesorio8.jpg') }}" alt="Fuente de Alimentación">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>1000W Fuente de alimentación totalmente modular 80+ Gold Certificada con cable 12V-2x6</h3>
+                    <p class="categoria">Accesorios</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 309.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main> 
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

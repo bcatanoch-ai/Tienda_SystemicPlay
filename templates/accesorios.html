@@ -13,7 +13,10 @@
             <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
-            <input type="text" placeholder="Buscar...">
+            <form action="{{ url_for('buscar') }}" method="GET">
+                <input type="text" name="q" placeholder="Buscar..." required>
+                <button type="submit" style="display:none;">Buscar</button>
+            </form>
         </div>
         
         <div class="opciones">
@@ -58,146 +61,28 @@
     </nav>
 
     <main class="contenedor-coleccionables">
-        <h1 class="titulo-coleccionables">Accesorios Consolas</h1>
+    <h1 class="titulo-coleccionables">Accesorios Consolas</h1>
 
-        <div class="grid-productos">
-            <!-- Producto 1 -->
-            <div class="card-producto">
-                <a href="{{ url_for('PortalPs5') }}">
-                    <div class="imagen-producto">
-                        <img src="{{ url_for('static', filename='img/accesorio1.jpg') }}" alt="PsPortal">
-                        <span class="etiqueta-nuevo">Nuevo</span>
-                    </div>
-                    <div class="info-producto">
-                        <h3>PLAYSTATION PORTAL PS5</h3>
-                        <p class="categoria">Reproductor remoto PlayStation Portal</p>
-                        <div class="precio-fila">
-                            <span class="precio">S/ 1100.00</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Producto 2 -->
-            <article class="card-producto">
-                <a href="{{ url_for('MandoPs5') }}">
+    <div class="grid-productos">
+        {% for item in accesorios %}
+        <article class="card-producto">
+            <a href="#"> 
                 <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio2.jpg') }}" alt="MandoPs5">
+                    <img src="{{ url_for('static', filename='img/' + item.img) }}" alt="{{ item.nombre }}">
                     <span class="etiqueta-nuevo">Nuevo</span>
                 </div>
                 <div class="info-producto">
-                    <h3>MANDO DUALSENSE PS5 <br> GALATIC PURPLE</h3>
-                    <p class="categoria">Mando DualSense Wireless Controller PS5</p>
+                    <h3>{{ item.nombre }}</h3>
+                    <p class="categoria">{{ item.categoria }}</p>
                     <div class="precio-fila">
-                        <span class="precio">S/ 255.00</span>
+                        <span class="precio">{{ item.precio }}</span>
                     </div>
                 </div>
-                </a>
-            </article>
-
-            <!-- Producto 3 -->
-            <article class="card-producto">
-                  <a href="{{ url_for('AudifonoPs5') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio3.jpg') }}" alt="AudifonoPs5">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>PS5 PLAYSTATION PULSE ELITE AUDIFONOS</h3>
-                    <p class="categoria">Audífono PS5</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 729.90</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-
-            <!-- Producto 4 -->
-            <article class="card-producto">
-                 <a href="{{ url_for('MandoXbox') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio4.jpg') }}" alt="MandoXbox">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>MANDO INALÁMBRICO XBOX ONE</h3>
-                    <p class="categoria">Mando Xbox</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 299.90</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-
-            <!-- Producto 5 -->
-            <article class="card-producto">
-                 <a href="{{ url_for('EstucheNs') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio5.jpg') }}" alt="EstucheSwitch">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>ESTUCHE RÍGIDO DE VIAJERO NINTENDO SWITCH 2</h3>
-                    <p class="categoria">Accesorio Nintendo Switch 2</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 89.90</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-
-            <!-- Producto 6 -->
-            <article class="card-producto">
-                 <a href="{{ url_for('JoyConNs') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio6.jpg') }}" alt="MandoSwitch">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>JOY-CON NINTENDO SWITCH 2</h3>
-                    <p class="categoria">Joy-cons   </p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 249.90</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-
-            <!-- Producto 7 -->
-            <article class="card-producto">
-                 <a href="{{ url_for('ComboLogitech') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio7.jpg') }}" alt="Combo_Logitech">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>COMBO LOGITECH MK270 TECLADO Y MOUSE</h3>
-                    <p class="categoria">Logitech</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 129.00</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-
-            <!-- Producto 8 -->
-            <article class="card-producto">
-                 <a href="{{ url_for('AudifonoLogitech') }}">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/accesorio8.jpg') }}" alt="AudifonoLogitech">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>LOGITECH G321 LIGHTSPEED AUDÍFONOS -    NEGRO</h3>
-                    <p class="categoria">Auriculares</p>
-                    <div class="precio-fila">
-                        <span class="precio">S/ 285.00</span>
-                    </div>
-                </div>
-                </a>
-            </article>
-        </div>
-    </main> 
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</main> 
 
     <a href="https://wa.me/51958310320?text=Hola,%20tengo%20una%20consulta%20sobre%20sus%20productos" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="contacto_flotante">

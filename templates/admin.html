@@ -67,64 +67,114 @@
         </div>
     </section>
 
-    <main>
-        <h2 id="titulo-form">Agregar nuevo juego</h2>
-        <form id="form-juego" action="/agregar-juego" method="POST">
-            <input type="hidden" id="edit-id" name="id">
-            <input type="text" id="edit-nombre" name="nombre" placeholder="Nombre" required>
-            <input type="text" id="edit-precio" name="precio" placeholder="Precio" required>
-            <input type="number" id="edit-stock" name="stock" placeholder="Stock disponible" required>
-            <input type="text" id="edit-img" name="img" placeholder="Archivo imagen" required>
-            <select id="edit-categoria" name="categoria">
-                <option value="ps5">PS5</option>
-                <option value="ps4">PS4</option>
-                <option value="xbox">Xbox</option>
-                <option value="nintendo">Nintendo Switch</option>
-                <option value="pc">PC</option>
-            </select>
-            <button type="submit" id="btn-submit">Agregar Juego</button>
-            <button type="button" onclick="limpiarForm()">Cancelar</button>
-        </form>
+    <main class="admin-wrapper">
+        
+        <div class="main-content">
+            <h2 id="titulo-form">Agregar nuevo juego</h2>
+            <form id="form-juego" action="/agregar-juego" method="POST">
+                <input type="hidden" id="edit-id" name="id">
+                <input type="text" id="edit-nombre" name="nombre" placeholder="Nombre" required>
+                <input type="text" id="edit-precio" name="precio" placeholder="Precio" required>
+                <input type="number" id="edit-stock" name="stock" placeholder="Stock" required>
+                <input type="text" id="edit-img" name="img" placeholder="Archivo imagen" required>
+                <select id="edit-categoria" name="categoria">
+                    <option value="ps5">PS5</option>
+                    <option value="ps4">PS4</option>
+                    <option value="xbox">Xbox</option>
+                    <option value="nintendo">Nintendo Switch</option>
+                    <option value="pc">PC</option>
+                </select>
+                <div class="form-buttons">
+                    <button type="submit" id="btn-submit">
+                        Agregar Juego
+                    </button>
 
-        <hr><br>
-        <h2 id="titulo-inventario">Inventario de Juegos</h2>
-
-        <table id="tabla-juegos">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for juego in juegos %}
-                <tr class="fila-juego" data-cat="{{ juego.categoria.lower() }}">
-                    <td>{{ juego.id }}</td>
-                    <td>{{ juego.nombre }}</td>
-                    <td>{{ juego.categoria }}</td>
-                    <td>{{ juego.precio }}</td>
-                    <td>{{ juego.stock }}</td>
-                    <td>
-                        <button onclick="prepararEdicion(this)" 
-                                data-id="{{ juego.id }}" 
-                                data-nombre="{{ juego.nombre }}" 
+                    <button type="button"
+                            class="btn-cancelar"
+                            onclick="limpiarForm()">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+            <br><br>
+            <h2 id="titulo-inventario">Inventario de Juegos</h2>
+            <table id="tabla-juegos">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Nombre</th><th>Categoría</th><th>Precio</th><th>Stock</th><th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for juego in juegos %}
+                    <tr class="fila-juego" data-cat="{{ juego.categoria.lower() }}">
+                        <td>{{ juego.id }}</td>
+                        <td>{{ juego.nombre }}</td>
+                        <td>{{ juego.categoria }}</td>
+                        <td>{{ juego.precio }}</td>
+                        <td>{{ juego.stock }}</td>
+                        <td class="acciones-cell">
+                            <button
+                                type="button"
+                                onclick="prepararEdicion(this)"
+                                data-id="{{ juego.id }}"
+                                data-nombre="{{ juego.nombre }}"
                                 data-precio="{{ juego.precio }}"
-                                data-stock="{{ juego.stock }}" 
-                                data-img="{{ juego.img }}" 
-                                data-cat="{{ juego.categoria }}">Editar</button>
-                        
-                        <a href="{{ url_for('eliminar_juego', id=juego.id) }}" 
-                           onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-                    </td>
+                                data-stock="{{ juego.stock }}"
+                                data-img="{{ juego.img }}"
+                                data-cat="{{ juego.categoria.lower() }}">
+                                Editar
+                            </button>
+
+                            <a href="{{ url_for('eliminar_juego', id=juego.id) }}"
+                            class="btn-eliminar">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <aside class="sidebar-content">
+            <h2>Clientes Registrados</h2>
+            <table>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </main>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.email }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <h2>Historial de Compras</h2>
+            <table>
+                <tr>
+                    <th>Cliente (User)</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Fecha</th>
+                </tr>
+                {% for c in compras %}
+                <tr>
+                    <td>{{ c.user_email.split('@')[0] }}</td>
+                    <td>{{ c.producto }}</td>
+                    <td>{{ c.cantidad }}</td>
+                    <td>{{ c.total }}</td>
+                    <td>{{ c.fecha.strftime('%d/%m/%Y') }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </aside>
+
+    </main> 
 
     <script>
         function prepararEdicion(boton) {
@@ -155,7 +205,9 @@
             // Actualizamos el título según la categoría
             if (categoria === 'todas') {
                 titulo.innerText = "Inventario de Juegos";
-            } else {
+            }   
+            
+            else {
                 // Capitalizamos la primera letra de la categoría para que se vea bien (ej: ps5 -> PS5)
                 titulo.innerText = "Inventario de Juegos (" + categoria.toUpperCase() + ")";
             }

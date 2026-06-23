@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolas - Xbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/XBOX.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{{ url_for('home') }}">Systemic Play</a>
+        </div>
+        <div class="busqueda">
+            <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="opciones">
+            {% if current_user.is_authenticated %}
+                <span style="color: #3b82f6; font-weight: bold; margin-right: 15px;">
+                    Hola, {{ current_user.nombre }}
+                </span>
+            {% else %}
+                <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+            {% endif %}
+            
+            <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
+        </div>
+    </header>
+
+    <nav class="sub_menu">
+        <ul>
+            <li class="dropdown">
+                <a href="{{ url_for('consola') }}" class="dropbtn">Consolas</a>
+                <ul class="dropdown-content">
+                    <li><a href="{{ url_for('PS5') }}">PlayStation 5</a></li>
+                    <li><a href="{{ url_for('PS4') }}">PlayStation 4</a></li>
+                    <li><a href="{{ url_for('XBOX') }}">XBOX</a></li>
+                    <li><a href="{{ url_for('NintendoSwitch') }}">Nintendo Switch</a></li>
+                    <li><a href="{{ url_for('PC') }}">PC</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="{{ url_for('accesorios') }}">Accesorios</a></li>
+            <li><a href="{{ url_for('coleccionables') }}">Coleccionables</a></li>
+            <li><a href="{{ url_for('lanzamientos') }}">Próximos Lanzamientos</a></li>
+        </ul>
+    </nav>
+
+    
+    <main class="contenedor-Consolas">
+        <h1 class="titulo-consolas">Xbox</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_1.png') }}" alt="Xbox One S">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>Xbox One S</h3>
+                    <p class="categoria">Xbox</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 849.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_2.png') }}" alt="Xbox One X">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Xbox One X</h3>
+                    <p class="categoria">Xbox</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 1,099.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_3.png') }}" alt="Xbox Series S">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Xbox Series S</h3>
+                    <p class="categoria">Xbox</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 1,399.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_4.png') }}" alt="Xbox Series X">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Xbox Series X</h3>
+                    <p class="categoria">Xbox</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 2,499.99</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main> 
+
+
+    <main class="contenedor-Juegos">
+        <h1 class="titulo-Juegos">Juegos de la Xbox</h1>
+
+        <div class="grid-productos">
+
+            <!-- Producto 1 -->
+            <article class="card-producto" >
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego1.png') }}" alt="Halo Infinite">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto" >
+                    <h3>Halo Infinite</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila" >
+                        <span class="precio">S/ 199.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 2 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego2.png') }}" alt="Forza Horizon 5">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Forza Horizon 5</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 219.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 3 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego3.png') }}" alt="Gears 5">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Gears 5</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 119.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 4 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego4.png') }}" alt="Starfield">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Starfield</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 259.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 5 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego5.png') }}" alt="Sea of Thieves">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Sea of Thieves</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 139.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 6 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego6.png') }}" alt="Microsoft Flight Simulator">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Microsoft Flight Simulator</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 219.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 7 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego7.png') }}" alt="State of Decay 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>State of Decay 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 99.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Producto 8 -->
+            <article class="card-producto">
+                <div class="imagen-producto">
+                    <img src="{{ url_for('static', filename='img/Xbox_juego8.png') }}" alt="Psychonauts 2">
+                    <span class="etiqueta-nuevo">Nuevo</span>
+                </div>
+                <div class="info-producto">
+                    <h3>Psychonauts 2</h3>
+                    <p class="categoria">Juegos</p>
+                    <div class="precio-fila">
+                        <span class="precio">S/ 159.90</span>
+                        <button class="btn-carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main> 
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=1.0"></script>
+</body>
+</html>

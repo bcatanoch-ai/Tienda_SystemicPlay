@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consolas - PC</title>
+    <title>Systemic Play - PC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/PC.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -13,12 +13,13 @@
             <a href="{{ url_for('home') }}">Systemic Play</a>
         </div>
         <div class="busqueda">
-            <input type="text" placeholder="Buscar...">
+            <form action="{{ url_for('buscar') }}" method="GET">
+                <input type="text" name="q" placeholder="Buscar...">
+            </form>
         </div>
         
         <div class="opciones">
             {% if current_user.is_authenticated %}
-                
                 {% if current_user.email == 'admin@systemic.com' %}
                     <a href="{{ url_for('panel_admin') }}" style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Panel Admin</a>
                     <span style="color: #f59e0b; font-weight: bold; margin-right: 15px;">Hola, Admin</span>
@@ -27,13 +28,10 @@
                         Hola, {{ current_user.nombre }}
                     </span>
                 {% endif %}
-                
                 <a href="{{ url_for('logout') }}">Cerrar Sesión</a> 
-
             {% else %}
                 <a href="{{ url_for('login') }}">Iniciar Sesión</a>
             {% endif %}
-            
             <a href="{{ url_for('carrito') }}" class="option">Carrito</a>
         </div>
     </header>
@@ -56,30 +54,8 @@
         </ul>
     </nav>
 
-    <main class="contenedor-Consolas">
-        <h1 class="titulo-consolas">PC Gamer</h1>
-        <div class="grid-productos">
-            {% for pc in lista_pcs %}
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/' + pc.img) }}" alt="{{ pc.nombre }}">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>{{ pc.nombre }}</h3>
-                    <p class="categoria">PC Gamer</p>
-                    <div class="precio-fila">
-                        <span class="precio">{{ pc.precio }}</span>
-                        <button class="btn-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
-                    </div>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </main>
-
     <main class="contenedor-Juegos">
-        <h1 class="titulo-Juegos">Juegos Para La PC Gamer</h1>
+        <h1 class="titulo-Juegos">Juegos Para La PC</h1>
         <div class="grid-productos">
             {% for juego in juegos_pc %}
             <article class="card-producto">
@@ -92,28 +68,6 @@
                     <p class="categoria">Juegos</p>
                     <div class="precio-fila">
                         <span class="precio">{{ juego.precio }}</span>
-                        <button class="btn-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
-                    </div>
-                </div>
-            </article>
-            {% endfor %}
-        </div>
-    </main>
-
-    <main class="contenedor-Juegos">
-        <h1 class="titulo-Juegos">Accesorios Para La PC Gamer</h1>
-        <div class="grid-productos">
-            {% for acc in accesorios_pc %}
-            <article class="card-producto">
-                <div class="imagen-producto">
-                    <img src="{{ url_for('static', filename='img/' + acc.img) }}" alt="{{ acc.nombre }}">
-                    <span class="etiqueta-nuevo">Nuevo</span>
-                </div>
-                <div class="info-producto">
-                    <h3>{{ acc.nombre }}</h3>
-                    <p class="categoria">Accesorios</p>
-                    <div class="precio-fila">
-                        <span class="precio">{{ acc.precio }}</span>
                         <button class="btn-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
                     </div>
                 </div>
